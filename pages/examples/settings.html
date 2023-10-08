@@ -194,21 +194,21 @@
 
                 <form>
                   <div class="form-group">
-                    <label for="name">Insurance Val:</label>
+                    <label for="insurance_val">Insurance Val:</label>
                     <input type="text" class="form-control" id="insurance_val" name="insurance_val">
                   </div>
                   <div class="form-group">
-                    <label for="name">Start Discount Val:</label>
+                    <label for="start_discount_val">Start Discount Val:</label>
                     <input type="text" class="form-control" id="start_discount_val" name="start_discount_val">
                   </div>
 
                   <div class="form-group">
-                    <label for="subscription_type">Point For Registration :</label>
+                    <label for="point_for_registration">Point For Registration :</label>
                     <input type="text" class="form-control" id="point_for_registration" name="point_for_registration">
                   </div>
 
                   <div class="form-group">
-                    <label for="subscription_type">Point For Invitation :</label>
+                    <label for="point_for_invitation">Point For Invitation :</label>
                     <input type="text" class="form-control" id="point_for_invitation" name="point_for_invitation">
                   </div>
 
@@ -295,32 +295,31 @@
         const terms_conditions = $('#terms_conditions').val();
         const policy = $('#policy').val();
         // Construct the form data
-        const formData = new FormData();
-        formData.append('insurance_val', insurance_val);
-        formData.append('start_discount_val', start_discount_val);
-        formData.append('point_for_invitation', point_for_invitation);
-        formData.append('point_for_registration', point_for_registration);
-        formData.append('min_no_of_points_to_change', min_no_of_points_to_change);
-        formData.append('termsConditions', terms_conditions);
-        formData.append('policy', policy);
+        const requestData = {
+          insurance_val: insurance_val,
+          start_discount_val: start_discount_val,
+          point_for_invitation: point_for_invitation,
+          point_for_registration: point_for_registration,
+          min_no_of_points_to_change: min_no_of_points_to_change,
+          termsConditions: terms_conditions,
+          policy: policy
+        };
         const token = localStorage.getItem('token');
 
         // formData.append('logo', imageFile);
 
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/admin/replacement/1',
+          url: 'http://localhost:8080/api/admin/replacement/' + 1,
           type: 'PUT',
-          data: formData,
-          processData: false,
-          contentType: false,
+          contentType: 'application/json', // Set content type to JSON
+          data: JSON.stringify(requestData), // Convert object to JSON
           headers: {
             Authorization: 'Bearer ' + token
           },
           success: function (data) {
             console.log('Form submission success:', data);
             // Clear the form
-            $('form').trigger('reset');
             // Show a pop-up message
             alert('Form submitted successfully!');
           },
@@ -329,6 +328,7 @@
             // Handle error response
           }
         });
+
       });
     });
   </script>

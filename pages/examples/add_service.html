@@ -167,7 +167,7 @@
       <!-- Main content -->
       <section class="content">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12 ">
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Service</h3>
@@ -182,13 +182,26 @@
 
                 <form>
                   <div class="form-group">
-                    <label for="name">discountValue:</label>
-                    <input type="text" class="form-control" id="discountValue" name="discountValue" required>
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" id="description" name="description" required></textarea>
                   </div>
 
                   <div class="form-group">
-                    <label for="price">rate:</label>
-                    <input type="number" class="form-control" id="price" name="price" required>
+                    <label for="discountValue">Discount Value:</label>
+                    <input type="text" class="form-control" placeholder="0.5" id="discountValue" name="discountValue" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="validUntil">Valid Until:</label>
+                    <input type="text" class="form-control" id="validUntil" placeholder="2023-11-20" name="validUntil" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="rate">Rate:</label>
+                    <input type="number" class="form-control" id="rate" placeholder="4" name="rate" required>
                   </div>
                   <div class="form-group">
                     <label for="image">Image:</label>
@@ -202,36 +215,6 @@
                   </div>
 
                   <!-- Add other input fields for the remaining properties -->
-                </form>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <div class="col-md-6">
-            <div class="card card-secondary">
-              <div class="card-header">
-                <h3 class="card-title">product</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                <form>
-                  <div class="form-group">
-                    <label for="discountValue">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea class="form-control" id="description" name="description" required></textarea>
-                  </div>
-
-                  <!-- Add other input fields for the remaining properties -->
-
                 </form>
               </div>
               <!-- /.card-body -->
@@ -293,8 +276,9 @@
         const discountValue = $('#discountValue').val();
         const name = $('#name').val();
         const description = $('#description').val();
+        const validUntil = $('#validUntil').val();
         const categoryId = $('#category-select').val();
-        const rate = $('#price').val();
+        const rate = $('#rate').val();
         const imageInput = $('#image')[0]; // use [0] to get the DOM element
         const imageFile = imageInput.files[0];
 
@@ -304,22 +288,22 @@
         formData.append('file', imageFile);
         formData.append('discountValue', discountValue);
         formData.append('creationDate', '2022-03-20');
-        formData.append('validUntil', '2022-04-20');
+        formData.append('validUntil', validUntil);
         formData.append('name', name);
         formData.append('is_available', true);
         formData.append('rate', rate);
-        formData.append('business.id', businessId);
+        formData.append('businessId', businessId);
         formData.append('category.id', categoryId);
         formData.append('carBrand', 1);
         formData.append('carModel', 1);
         formData.append('description', description);
-        formData.append('quantity', 10);
+        formData.append('max_usage', 49);
 
         // Submit the form data using AJAX
         $.ajax({
           url: 'http://localhost:8080/api/business/service/save',
           type: 'POST',
-          data: JSON,
+          data: formData,
           processData: false,
           contentType: false,
           headers: {
