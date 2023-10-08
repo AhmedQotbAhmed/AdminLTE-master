@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Masla7ty | Add Event</title>
+  <title>Masla7ty | Add Service</title>
   <script>
     if (!localStorage.getItem('token'))
       window.location.href = '/pages/examples/login-v2.html';
@@ -35,7 +35,22 @@
 
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
+        <!-- Logout -->
 
+        <li class="nav-item">
+          <ul class="navbar-nav d-flex flex-row ms-auto me-3">
+            <li class="nav-item me-3 me-lg-0 dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="dist/img/AdminLTELogo.png" class="rounded-circle" height="30" alt="" loading="lazy" />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown1">
+                <li><a class="dropdown-item" id="logout" href="#">Logout</a></li>
+                <!-- Add more dropdown items here if needed -->
+              </ul>
+          </ul>
+        </li>
+        <!-- end Logout -->
 
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -75,7 +90,12 @@
                   Dashboard
                 </p>
               </a>
-
+            </li>
+            <li class="nav-item">
+              <a href="/pages/examples/users.html" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Users</p>
+              </a>
             </li>
             <li class="nav-item">
               <a href="/pages/examples/service.html" class="nav-link  ">
@@ -90,9 +110,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/view_event.html" class="nav-link active  ">
+              <a href="/pages/examples/event.html" class="nav-link  active">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Event Services</p>
+                <p>Event</p>
               </a>
             </li>
             <li class="nav-item">
@@ -101,8 +121,12 @@
                 <p>Notification</p>
               </a>
             </li>
-
-
+            <li class="nav-item">
+              <a href="/pages/examples/settings.html" class="nav-link  ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Settings</p>
+              </a>
+            </li>
 
           </ul>
         </nav>
@@ -124,7 +148,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Add Event</li>
+                <li class="breadcrumb-item active">Add User</li>
               </ol>
             </div>
           </div>
@@ -134,10 +158,10 @@
       <!-- Main content -->
       <section class="content">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Event</h3>
+                <h3 class="card-title">User</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -148,26 +172,31 @@
               <div class="card-body">
 
                 <form>
+
                   <div class="form-group">
-                    <label for="name">discountValue:</label>
-                    <input type="text" class="form-control" id="discountValue" name="discountValue" required>
+                    <label for="event_title">event title:</label>
+                    <input type="email" class="form-control" id="event_title" name="event title">
                   </div>
 
                   <div class="form-group">
-                    <label for="price">rate:</label>
-                    <input type="number" class="form-control" id="price" name="price" required>
+                    <label for="event_sub_title">event sub title:</label>
+                    <input type="text" class="form-control" id="event_sub_title" name="event_sub_title">
                   </div>
+
+
+                  <div class="form-group">
+                    <label for="business-select">business:</label>
+                    <select id="business-select" class="form-control" name="business-select" required>
+                      <option value="">Select a business</option>
+                      <!-- Add other <option> elements here -->
+                    </select>
+                  </div>
+
                   <div class="form-group">
                     <label for="image">Image:</label>
                     <input type="file" class="form-control" id="image" name="image" required>
                   </div>
 
-                  <div class="form-group">
-
-                    <label for="category-select">Category:</label>
-                    <select id="category-select" class="form-control" name="category_id" required></select>
-                  </div>
-
                   <!-- Add other input fields for the remaining properties -->
                 </form>
               </div>
@@ -175,36 +204,7 @@
             </div>
             <!-- /.card -->
           </div>
-          <div class="col-md-6">
-            <div class="card card-secondary">
-              <div class="card-header">
-                <h3 class="card-title">product</h3>
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                <form>
-                  <div class="form-group">
-                    <label for="discountValue">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea class="form-control" id="description" name="description" required></textarea>
-                  </div>
-
-                  <!-- Add other input fields for the remaining properties -->
-
-                </form>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
         </div>
         <div class="row">
           <div class="col-12">
@@ -235,79 +235,101 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     $.ajax({
-      url: 'http://localhost:8080/api/public/category',
+      url: 'http://localhost:8080/api/admin/businesses',
       method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token')
+      },
       success: function (data) {
-        const $categorySelect = $('#category-select');
-        $categorySelect.empty();
-        $.each(data, function (index, category) {
-          $categorySelect.append($('<option>', {
-            value: category.id,
-            text: category.name
+        const $businessSelect = $('#business-select');
+        $businessSelect.empty();
+
+        // Add an initial empty option
+        $businessSelect.append($('<option>', {
+          value: '',
+          text: 'Select a business' // You can customize the label as needed
+        }));
+
+        // Populate the select with business options
+        $.each(data, function (index, business) {
+          $businessSelect.append($('<option>', {
+            value: business.id,
+            text: business.name
           }));
         });
       }
     });
 
     $(document).ready(function () {
-      var urlParams = new URLSearchParams(window.location.search);
-      var businessId = urlParams.get('eventOffers');
-
       $('form').submit(function (event) {
         event.preventDefault(); // prevent default form submission behavior
 
         // Get values from the form
-        const discountValue = $('#discountValue').val();
-        const name = $('#name').val();
-        const description = $('#description').val();
-        const categoryId = $('#category-select').val();
-        const rate = $('#price').val();
-        const imageInput = $('#image')[0]; // use [0] to get the DOM element
-        const imageFile = imageInput.files[0];
-
+        const event_title = $('#event_title').val() + '';
+        const event_sub_title = $('#event_sub_title').val() + '';
+        const selectedValue = $('#business-select').val();
+        const businessId = selectedValue !== '' ? selectedValue : null;
+        const files = $('#image')[0].files; // use [0] to get the DOM element
         const token = localStorage.getItem('token');
+        uploadImage(files, function (image) {
+          // Callback function for handling the image upload response
 
+          const eventOb = {
+            "event_title": event_title,
+            "event_sub_title": event_sub_title,
+            "image": image,
+            "business":businessId
+          };
+
+          $.ajax({
+            url: 'http://localhost:8080/api/admin/event-offers',
+            type: 'POST',
+            contentType: 'application/json', // Set content type to JSON
+            data: JSON.stringify(eventOb),
+            headers: {
+              Authorization: 'Bearer ' + token
+            },
+            success: function (data) {
+              console.log('Form submission success:', data);
+              // Clear the form
+              $('form').trigger('reset');
+              // Show a pop-up message
+              alert('Form submitted successfully!');
+            },
+            error: function (xhr, status, error) {
+              console.error('Form submission error:', error);
+              console.log('Response Text:', xhr.responseText);
+              // Handle error response
+            }
+          });
+        });
+      });
+
+      function uploadImage(files, callback) {
         const formData = new FormData();
-        formData.append('file', imageFile);
-        formData.append('discountValue', discountValue);
-        formData.append('creationDate', '2022-03-20');
-        formData.append('validUntil', '2022-04-20');
-        formData.append('name', name);
-        formData.append('is_available', true);
-        formData.append('rate', rate);
-        formData.append('businessId.id', businessId);
-        formData.append('category.id', categoryId);
-        formData.append('carBrand', 1);
-        formData.append('carModel', 1);
-        formData.append('description', description);
-        formData.append('quantity', 10);
 
-        // Submit the form data using AJAX
+        for (let i = 0; i < files.length; i++) {
+          formData.append('file', files[i]);
+        }
+
         $.ajax({
-          url: 'http://localhost:8080/api/business/service/save',
-          type: 'POST',
+          url: "http://localhost:8080/api/user/s3/upload",
+          type: "POST",
           data: formData,
           processData: false,
           contentType: false,
           headers: {
-            Authorization: 'Bearer ' + token
+            Authorization: 'Bearer ' +  localStorage.getItem('token')
           },
-          success: function (data) {
-            console.log('Form submission success:', data);
-            // Clear the form
-            $('form').trigger('reset');
-            // Show a pop-up message
-            alert('Service submitted successfully!');
+          success: function (response) {
+            callback(response); // Pass the response to the callback function
           },
           error: function (xhr, status, error) {
-            console.error('Form submission error:', error);
-            // Handle error response
-          }
+            console.log(error); // log any errors in the browser console
+          },
         });
-
-      });
+      }
     });
-
 
   </script>
   <!-- jQuery -->
@@ -318,6 +340,25 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.dropdown-toggle').dropdown();
+
+      $('#logout').click(function (e) {
+        e.stopPropagation(); // Prevent the click event from propagating to the document
+
+        localStorage.removeItem("token");
+        window.location.href = '/pages/examples/login-v2.html';
+      });
+
+      $(document).click(function (e) {
+        // Check if the clicked element is outside the dropdown
+        if (!$(e.target).parents('.dropdown-menu').length) {
+          $('.dropdown-menu').removeClass('show'); // Close the dropdown
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

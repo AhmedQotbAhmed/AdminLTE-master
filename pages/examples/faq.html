@@ -26,7 +26,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="../../index3.html" class="nav-link">Home</a>
+          <a href="../../index.html" class="nav-link">Home</a>
         </li>
 
       </ul>
@@ -200,6 +200,14 @@
 
 
           </div>
+          <div class="col-sm-12">
+              <h3 class="breadcrumb-item active">Technical Support:</h3>
+              <br>
+          </div>
+          <div class="api-git col-12" >
+
+
+          </div>
         </div>
 
       </section>
@@ -210,17 +218,7 @@
     <div class="card-footer">
       <nav aria-label="Contacts Page Navigation">
         <ul class="pagination justify-content-center m-0">
-          <button id="prevButton" class="btn btn-primary"><i class="fas fa-chevron-left"></i></button>
-          <div class="pagination">
 
-            <ul class="pagination justify-content-center m-0 pagination-list">
-              <li class="page-item active"><a class="page-link"><i class="fas fa-circle"></i> 1</a>
-              </li>
-              <li class="page-item"><a class="page-link"><i class="fas fa-circle"></i> 2</a></li>
-            </ul>
-          </div>
-
-          <button id="nextButton" class="btn btn-primary"> <i class="fas fa-chevron-right"></i></button>
 
         </ul>
 
@@ -235,6 +233,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script>
+    var countsup=1;
+    var countpub=1;
     function populateTable(response, offset) {
       console.log(response); // Check the response in the browser console
       if (response && response.length > 0) { // Check if the response contains data
@@ -247,7 +247,48 @@
               <a class="d-block w-100" data-toggle="collapse" href="#collapseOne">
                 <div class="card-header">
                   <h4 class="card-title ">
-                    ${faq.id}. ${faq.question_en}
+                    ${countpub++}. ${faq.question_en}
+                  </h4>
+                  <div class="project-actions text-right">
+                    <a class="btn btn-primary btn-sm" href="faq-update.html?id=${faq.id}">
+                      <i class="fas fa-folder">
+                      </i>
+                      Edit
+                    </a>
+                            <a class="btn btn-danger btn-sm" onclick="confirmDelete(${faq.id})">
+                      <i class="fas fa-trash">
+                      </i>
+                      Delete
+                    </a>
+                  </div>
+                </div>
+              </a>
+              <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                <div class="card-body">
+                ${faq.answer_en}
+                </div>
+              </div>
+
+            </div>
+
+      `;
+          container.append(cardHtml); // Append the generated card to the container
+        });
+      }
+    }
+    function populateTable2(response, offset) {
+      console.log(response); // Check the response in the browser console
+      if (response && response.length > 0) { // Check if the response contains data
+        var container = $(".api-git");
+        container.empty(); // Clear the existing content
+
+        $.each(response, function (i, faq) {
+          var cardHtml = `
+              <div class="card card-primary card-outline">
+              <a class="d-block w-100" data-toggle="collapse" href="#collapseOne">
+                <div class="card-header">
+                  <h4 class="card-title ">
+                    ${countsup++}. ${faq.question_en}
                   </h4>
                   <div class="project-actions text-right">
                     <a class="btn btn-primary btn-sm" href="faq-update.html?id=${faq.id}">
@@ -315,6 +356,17 @@
         dataType: "json",
         success: function (response) {
           populateTable(response, 1); // Pass the default offset value to the populateTable function
+        },
+        error: function (xhr, status, error) {
+          console.log(error); // Log any errors in the browser console
+        }
+      });
+      $.ajax({
+        url: "http://localhost:8080/api/public/faq/support", // Set the default offset to 1
+        type: "GET",
+        dataType: "json",
+        success: function (response) {
+          populateTable2(response, 1); // Pass the default offset value to the populateTable function
         },
         error: function (xhr, status, error) {
           console.log(error); // Log any errors in the browser console

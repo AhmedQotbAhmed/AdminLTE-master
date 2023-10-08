@@ -273,7 +273,7 @@
       <div class="card custom-card mb-4">
         <div class="card-body text-center">
           <div class="avatar-container">
-            <img src="${downloadImage(response.service_images, function (response) {
+            <img src="${downloadImage(response.service_images??"test.png", function (response) {
         var imgElement = document.querySelector('.img-fluid');
         var imageUrl = URL.createObjectURL(response);
         imgElement.src = imageUrl;
