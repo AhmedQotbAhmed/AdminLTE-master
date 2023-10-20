@@ -380,8 +380,8 @@
       const description = $('#description').val();
       const terms_conditions = $('#terms_conditions').val();
       const category_id = $('#category_id').val();
-      const imageInput = $('#logo')[0]; // use [0] to get the DOM element
-      const imageFile = imageInput.files[0];
+      const files = $('#logo')[0].files; // use [0] to get the DOM element
+      const token = localStorage.getItem('token')
 
 
       const address = $('#address').val();
@@ -393,7 +393,7 @@
       const region = $('#region').val();
       const city = $('#city').val();
       // Construct the form data
-
+      uploadImage(files, function (image) {
       // Construct the form data
       const businessData = {
         "name": name,
@@ -411,6 +411,7 @@
         "working_days": working_days,
         "region_id": region,
         "city_id": city,
+        "logo": image,
 
       };
 
@@ -441,7 +442,33 @@
           // Handle error response
         }
       });
+      });
+
     });
+    function uploadImage(files, callback) {
+      const formData = new FormData();
+
+      for (let i = 0; i < files.length; i++) {
+        formData.append('file', files[i]);
+      }
+
+      $.ajax({
+        url: "http://localhost:8080/api/user/s3/upload",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        headers: {
+          Authorization: 'Bearer ' +  localStorage.getItem('token')
+        },
+        success: function (response) {
+          callback(response); // Pass the response to the callback function
+        },
+        error: function (xhr, status, error) {
+          console.log(error); // log any errors in the browser console
+        },
+      });
+    }
   });
 </script>
 <!-- jQuery -->

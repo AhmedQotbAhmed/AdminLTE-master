@@ -256,22 +256,24 @@
         const user = $('#user').val();
 
         // Construct the form data
-        const formData = new FormData();
-        formData.append('title', title);
-        formData.append('description', description);
-        formData.append('user.id', 0);
+        // const formData = new FormData();
+        // formData.append('title', title);
+        // formData.append('description', description);
+
 
         const token = localStorage.getItem('token');
-
+        const requestData = {
+          title: title,
+          description: description,
+        };
         // formData.append('logo', imageFile);
 
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/admin/notification',
+          url: 'http://localhost:8080/api/admin/notification/all',
           type: 'POST',
-          data: formData,
-          processData: false,
-          contentType: false,
+          data: JSON.stringify(requestData), // Send JSON data in the request body
+          contentType: 'application/json',
           headers: {
             Authorization: 'Bearer ' + token
           },

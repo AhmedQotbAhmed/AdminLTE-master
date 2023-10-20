@@ -213,7 +213,6 @@
 
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Business View</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -280,8 +279,6 @@
       console.log(response); // Check the response in the browser console
       // Check if the response contains data
       var container = $("#api-git-container");
-      var element = document.querySelector('.card-title');
-      element.textContent = response.name + " List";
       container.empty(); // Clear the existing content
 
       container.append(`
@@ -339,18 +336,21 @@
               <strong class="ps-2">${response.rate}</strong>
             </div>
             <div class="col-md-4">
-              <p class="mb-1 text-muted"><i class="fas fa-sync-alt mr-1"></i> Start Discount Value</p>
+              <p class="mb-1 text-muted"><i class="fas fa-money-bill-alt mr-1"></i> Start Discount Value</p>
               <strong class="ps-2">${response.start_discount_val * 100} %</strong>
             </div>
             <div class="col-md-4">
-              <p class="mb-1 text-muted"><i class="fas fa-sign-in-alt mr-1"></i> Product Count</p>
+              <p class="mb-1 text-muted"><i class="fas fa-calculator mr-1"></i> Product Count</p>
               <strong class="ps-2">${response.productCount}</strong>
             </div>
           </div>
           <hr>
           <div class="row">
-            <div class="col-md-12">
-              <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i> Description</p>
+            <div class="col-md-4">
+              <p class="mb-1 text-muted mr-1"><i class="fas fa-sort-numeric-up"></i> Visits Number</p>
+              <strong class="ps-2">${response.visits_num}</strong>
+            </div>   <div class="col-md-6">
+              <p class="mb-1 text-muted mr-1"><i class="fas fa-audio-description"></i> Description</p>
               <strong class="ps-2">${response.description}</strong>
             </div>
           </div>

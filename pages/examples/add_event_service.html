@@ -287,13 +287,14 @@
       const categoryId = $('#category-select').val();
       const max_usage = $('#max_usage').val();
       const rate = $('#rate').val();
-      const imageInput = $('#image')[0]; // use [0] to get the DOM element
-      const imageFile = imageInput.files[0];
+      const files = $('#image')[0].files; // use [0] to get the DOM element
+
 
       const token = localStorage.getItem('token');
+      uploadImage(files, function (image) {
 
       const formData = new FormData();
-      formData.append('file', imageFile);
+      formData.append('images', imageFile);
       formData.append('discountValue', discountValue);
       formData.append('creationDate', '2022-03-20');
       formData.append('validUntil', validUntil);
@@ -329,8 +330,33 @@
           // Handle error response
         }
       });
+      });
 
     });
+    function uploadImage(files, callback) {
+      const formData = new FormData();
+
+      for (let i = 0; i < files.length; i++) {
+        formData.append('file', files[i]);
+      }
+
+      $.ajax({
+        url: "http://localhost:8080/api/user/s3/upload",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        headers: {
+          Authorization: 'Bearer ' +  localStorage.getItem('token')
+        },
+        success: function (response) {
+          callback(response); // Pass the response to the callback function
+        },
+        error: function (xhr, status, error) {
+          console.log(error); // log any errors in the browser console
+        },
+      });
+    }
   });
 
 
