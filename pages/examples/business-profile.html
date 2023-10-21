@@ -335,11 +335,6 @@
                     <th style="width: 15%">
                       Working days
                     </th>
-                    <th>
-                      <button type="button" class="btn  btn-outline-primary" onclick="window.location.href='/pages/examples/branch.html?id=${response.id}'">
-                        Create Branch
-                      </button>
-                    </th>
                   </tr>
                 </thead>
                 <tbody class="branch">
@@ -409,8 +404,7 @@
           <td>${branch.phone_number}</td>
           <td>${branch.openTime}</td>
           <td>${branch.closureTime}</td>
-          <td>${branch.working_days}</td>
-          <td class="project-actions text-right"></td>
+          <td>${branch.working_days ??""}</td>
         </tr>`;
           });
           $('.branch').append(html);
