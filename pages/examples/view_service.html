@@ -269,45 +269,8 @@
 
       container.append(`
   <div class="row">
-    <div class="col-lg-3">
-      <div class="card custom-card mb-4">
-        <div class="card-body text-center">
-          <div class="avatar-container">
-            <img src="${downloadImage(response.service_images??"test.png", function (response) {
-        var imgElement = document.querySelector('.img-fluid');
-        var imageUrl = URL.createObjectURL(response);
-        imgElement.src = imageUrl;
-      })}" alt="avatar"  class="img-fluid" style="width: 150px; height: 150px;">
-          </div>
-          <h5 class="mt-3">${response.products.name}</h5>
-          <div class="star-rating">
-            ${Array(parseInt(response.rate))
-          .fill('<i class="fas fa-star"></i>')
-          .join('')}
-          </div>
-        </div>
-      </div>
-      <div class="card custom-card mb-4 mb-lg-0">
-        <div class="card-body p-0">
-          <ul class="list-group list-group-flush rounded-3">
-                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-              <strong><i class="fas fa-info-circle" style="color: #17A2B8;"></i> <?= Yii::t('backend', 'Approval') ?></strong>
-              <p class="mb-0">
-                <a class="float-right">${response.category_name}</a>
-              </p>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-              <strong><i class="fas fa-user-circle" style="color: #6F42C1;"></i></strong>
-              <p class="mb-0">
-                <a class="float-right">${response.discount_value * 100}%</a>
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+
     <div class="col-lg-9">
-      <div class="card custom-card">
         <div class="card-body">
           <div class="row">
             <div class="col-md-4">
@@ -332,10 +295,47 @@
           </div>
 
           </div>
+          <hr>
 
 
-                    <br>
 
+
+    </div>
+      <div class="col-lg-3">
+      <div class="card custom-card mb-4">
+        <div class="card-body text-center">
+          <div class="avatar-container">
+            <img src="${downloadImage(response.service_images??"test.png", function (response) {
+        var imgElement = document.querySelector('.img-fluid');
+        var imageUrl = URL.createObjectURL(response);
+        imgElement.src = imageUrl;
+      })}" alt="avatar"  class="img-fluid" style="width: 150px; height: 150px;">
+          </div>
+          <h5 class="mt-3">${response.products.name}</h5>
+          <div class="star-rating">
+            ${Array(parseInt(response.rate))
+        .fill('<i class="fas fa-star"></i>')
+        .join('')}
+          </div>
+        </div>
+      </div>
+      <div class="card custom-card mb-4 mb-lg-0">
+        <div class="card-body p-0">
+          <ul class="list-group list-group-flush rounded-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+              <strong><i class="fas fa-info-circle" style="color: #17A2B8;"></i> <?= Yii::t('backend', 'Approval') ?></strong>
+              <p class="mb-0">
+                <a class="float-right">${response.category_name}</a>
+              </p>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+              <strong><i class="fas fa-user-circle" style="color: #6F42C1;"></i></strong>
+              <p class="mb-0">
+                <a class="float-right">${response.discount_value * 100}%</a>
+              </p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

@@ -4,13 +4,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Masla7ty | Add Service</title>
-  <script>
-    if (!localStorage.getItem('token'))
-      window.location.href = '/pages/examples/login-v2.html';
+  <title>Masla7ty | Contacts</title>
+  <style>
+    .star-rating {
+      line-height: 32px;
+      font-size: 1.25em;
+    }
 
-    console.log(localStorage.getItem('token'))
-  </script>
+    .star-rating .fa-star {
+      color: #ea950c;
+    }
+  </style>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -51,7 +55,6 @@
           </ul>
         </li>
         <!-- end Logout -->
-
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
@@ -65,7 +68,16 @@
       </ul>
     </nav>
     <!-- /.navbar -->
+    <style>
+      .star-rating {
+        line-height: 32px;
+        font-size: 1.25em;
+      }
 
+      .star-rating .fa-star {
+        color: #ea950c;
+      }
+    </style>
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-light-primary elevation-4">
       <!-- Brand Logo -->
@@ -76,13 +88,12 @@
       </a>
 
       <!-- Sidebar -->
-      <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
+                                 with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
               <a href="../../index.html" class="nav-link ">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -90,9 +101,10 @@
                   Dashboard
                 </p>
               </a>
+
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/users.html" class="nav-link active">
+              <a href="/pages/examples/users.html" class="nav-link ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Users</p>
               </a>
@@ -110,9 +122,34 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/event.html" class="nav-link  ">
+              <a href="/pages/examples/readem.html" class="nav-link  ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Readem</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/examples/category.html" class="nav-link  ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Category </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/examples/carbrand.html" class="nav-link  ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Car Brand</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/pages/examples/event.html" class="nav-link active ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Event</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/pages/examples/faq.html" class="nav-link  ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>FAQs</p>
               </a>
             </li>
             <li class="nav-item">
@@ -133,7 +170,6 @@
         <!-- /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
-      <!-- /.sidebar -->
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
@@ -143,12 +179,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Add User</h1>
+              <h1>Event </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Add User</li>
+                <li class="breadcrumb-item active">Model </li>
               </ol>
             </div>
           </div>
@@ -157,56 +193,25 @@
 
       <!-- Main content -->
       <section class="content">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">User</h3>
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-9 mx-auto" id="profile-content">
 
-                <form>
-                  <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email">
-                  </div>
+              <!-- Profile Image -->
 
-                  <div class="form-group">
-                    <label for="Password">Password:</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                  </div>
+              <!-- /.card -->
 
-                  <div class="form-group">
-                    <label for="contact_number">Contact number:</label>
-                    <input type="text" class="form-control" id="contact_number" name="Contact_number">
-                  </div>
+              <!-- About Me Box -->
 
-                  <!-- Add other input fields for the remaining properties -->
-                </form>
-              </div>
-              <!-- /.card-body -->
+              <!-- /.card -->
             </div>
-            <!-- /.card -->
-          </div>
+            <!-- /.col -->
 
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <form>
-              <input type="submit" id="submit" value="Create" class="btn btn-success float-right">
-            </form>
+            <!-- /.col -->
           </div>
-        </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
       </section>
       <!-- /.content -->
     </div>
@@ -226,54 +231,9 @@
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-
-
-    $(document).ready(function () {
-      $('form').submit(function (event) {
-        event.preventDefault(); // prevent default form submission behavior
-        // name email status subscription_type logo category_id description terms_conditions
-
-        // Get values from the form
-        const name = $('#name').val() + '';
-        const email = $('#email').val() + '';
-        const password = $('#password').val() + '';
-        const contact_number = $('#contact_number').val() + '';
-        // Construct the form data
-        const userDTO = {
-          "name": name,
-          "email": email,
-          "password": password,
-          "contact_number": contact_number,
-          "car_model": "1", // Note: You might want to send this as a string
-          "car_brand": "1"  // Note: You might want to send this as a string
-        };
-
-        // formData.append('logo', imageFile);
-
-        // Submit the form data using AJAX
-        $.ajax({
-          url: 'http://localhost:8080/api/public/user/signup',
-          type: 'POST',
-          contentType: 'application/json', // Set content type to JSON
-          data: (JSON.stringify(userDTO)), // Convert userDTO to JSON stri
-          success: function (data) {
-            console.log('Form submission success:', data);
-            // Clear the form
-            $('form').trigger('reset');
-            // Show a pop-up message
-            alert('Form submitted successfully!');
-          },
-          error: function (xhr, status, error) {
-            console.error('Form submission error:', error);
-            console.log('Response Text:', xhr.responseText);            // Handle error response
-          }
-        });
-      });
-    });
-  </script>
   <!-- jQuery -->
+  <!-- Bootstrap 4 -->
+  <!-- AdminLTE App -->
   <script src="../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -281,6 +241,105 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+  <script>
+
+    function redirectToServicePage() {
+      var itemId = new URLSearchParams(window.location.search).get("itemId");
+      var businessId = new URLSearchParams(window.location.search).get("businessId");
+      var url = '/pages/examples/add_event_service2.html?eventId=' + encodeURIComponent(itemId)+"&businessId="+encodeURIComponent(businessId);
+      window.location.href = url;
+    }
+
+    function populateTable(response) {
+      console.log(response); // Check the response in the browser console
+      // Check if the response contains data
+      var container = $("#profile-content");
+
+      container.empty(); // Clear the existing content
+      container.append(`        <br>
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="d-flex justify-content-end" id="button-create">
+                   <button type="button" class="btn btn-block btn-outline-primary btn-lg"
+                  onclick="redirectToServicePage()">
+            Create Services
+          </button>
+                </div>
+              </div>
+
+              <br> <div class="card card-primary card-outline">
+
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                            <div class="avatar-container">
+                    <img src="${downloadImage(response.image, function (response) {
+        var imgElement = document.querySelector('.img-fluid');
+        var imageUrl = URL.createObjectURL(response);
+        imgElement.src = imageUrl;
+      })}" alt="avatar"  class="img-fluid" style="width: 150px; height: 150px;">
+                  </div>
+                  </div>
+
+                  <h3 class="profile-username text-center">${response.event_title+ " "+response.event_sub_title}</h3>
+
+                  <p class="text-muted text-center">Business Id ${response && response.business_id ? response.business_id : "Not Yet"}</p>
+
+
+                       <a href="${response && response.business_id ? 'business-profile.html?itemId=' + response.business_id : '#'}"
+               class="btn btn-primary btn-block"><b>Business Profile</b></a>
+                </div>
+                <!-- /.card-body -->
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              `);
+
+
+
+    }
+    function downloadImage(keyName, callback) {
+
+
+      $.ajax({
+        url: "http://localhost:8080/api/public/s3/download?keyName=" + keyName,
+        type: "GET",
+        xhrFields: {
+          responseType: "blob",
+        },
+        success: function (response) {
+          callback(response);
+        },
+        error: function (xhr, status, error) {
+          console.log(error); // log any errors in the browser console
+        },
+      });
+    }
+
+
+
+
+
+    $(document).ready(function () {
+      // Get the itemId from the URL parameters
+      var urlParams = new URLSearchParams(window.location.search);
+      var itemId = urlParams.get('itemId');
+
+      // Make an AJAX request to fetch the contact details based on the itemId
+      $.ajax({
+        url: "http://localhost:8080/api/public/event-offers/" + itemId, // Update the URL with your API endpoint
+        type: "GET",
+        dataType: "json",
+        success: function (response) {
+          populateTable(response); // Pass the offset to the populateTable function
+
+          // Populate the contact details in the HTML elements
+
+        },
+        error: function (xhr, status, error) {
+          console.log(error); // Log any errors in the browser console
+        }
+      });
+    });
+  </script>
   <script>
     $(document).ready(function () {
       $('.dropdown-toggle').dropdown();
@@ -300,6 +359,20 @@
       });
     });
   </script>
+  <!-- jQuery -->
+
 </body>
 
 </html>
+
+<!-- $.each(response.carModelIds, function (i, model) {
+var cardHtml = `
+
+
+
+
+
+
+` ;
+container.append(cardHtml); // Append the generated card to the container
+}); -->
