@@ -295,7 +295,7 @@
                            ${redame.business_branch_ID}
                         </td>
                         <td >
-                          ${redame.total_invoice}
+                          ${redame.total_invoice??""}
                           </td>
                         <td class="project-state">
                             <span class="badge ${redame.stateName == 'active' ? 'badge-primary' : 'badge-success'}">   ${redame.stateName}</span>

@@ -294,7 +294,7 @@
       uploadImage(files, function (image) {
 
       const formData = new FormData();
-      formData.append('images', imageFile);
+      formData.append('images', files);
       formData.append('discountValue', discountValue);
       formData.append('creationDate', '2022-03-20');
       formData.append('validUntil', validUntil);
