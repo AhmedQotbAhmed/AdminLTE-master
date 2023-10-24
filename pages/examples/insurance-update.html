@@ -35,7 +35,22 @@
 
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
+        <!-- Logout -->
 
+        <li class="nav-item">
+          <ul class="navbar-nav d-flex flex-row ms-auto me-3">
+            <li class="nav-item me-3 me-lg-0 dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="dist/img/AdminLTELogo.png" class="rounded-circle" height="30" alt="" loading="lazy" />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown1">
+                <li><a class="dropdown-item" id="logout" href="#">Logout</a></li>
+                <!-- Add more dropdown items here if needed -->
+              </ul>
+          </ul>
+        </li>
+        <!-- end Logout -->
 
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -56,18 +71,16 @@
       <!-- Brand Logo -->
       <a href="../../index.html" class="brand-link">
         <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-          style="opacity: .8">
+          style="opacity: 0.8" />
         <span class="brand-text font-weight-light">Masla7ty</span>
       </a>
 
-      <!-- Sidebar -->
-      <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
+                                         with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
               <a href="../../index.html" class="nav-link ">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -83,7 +96,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/service.html" class="nav-link active ">
+              <a href="/pages/examples/service.html" class="nav-link  ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Services</p>
               </a>
@@ -101,13 +114,14 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/Insurance.html" class="nav-link ">
+              <a href="/pages/examples/Insurance.html" class="nav-link active ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Insurance</p>
               </a>
             </li>
+
             <li class="nav-item">
-              <a href="/pages/examples/category.html" class="nav-link ">
+              <a href="/pages/examples/category.html" class="nav-link  ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Category</p>
               </a>
@@ -125,7 +139,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/faq.html" class="nav-link  ">
+              <a href="/pages/examples/faq.html" class="nav-link ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>FAQs</p>
               </a>
@@ -148,7 +162,6 @@
         <!-- /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
-      <!-- /.sidebar -->
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
@@ -158,12 +171,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Add Service</h1>
+              <h1>Insurance</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Add Service</li>
+                <li class="breadcrumb-item active">Insurance</li>
               </ol>
             </div>
           </div>
@@ -173,10 +186,10 @@
       <!-- Main content -->
       <section class="content">
         <div class="row">
-          <div class="col-md-12 ">
+          <div class="col-md-12">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Service</h3>
+                <h3 class="card-title">Insurance</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -188,41 +201,76 @@
 
                 <form>
                   <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
+                    <label for="car_type">Car type:</label>
+                    <input type="text" class="form-control" id="car_type" name="car_type">
                   </div>
                   <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea class="form-control" id="description" name="description" required></textarea>
+                    <label for="car_brand">Car brand:</label>
+                    <input type="text" class="form-control" id="car_brand" name="car_brand">
+                  </div>
+                  <div class="form-group">
+                    <label for="car_model">Car model:</label>
+                    <input type="text" class="form-control" id="car_model" name="car_model">
+                  </div>
+                  <div class="form-group">
+                    <label for="car_price">Car price:</label>
+                    <input type="text" class="form-control" id="car_price" name="car_price">
+                  </div>
+                  <div class="form-group">
+                    <label for="kilometers">Kilometers:</label>
+                    <input type="text" class="form-control" id="kilometers" name="kilometers">
+                  </div>
+                  <div class="form-group">
+                    <label for="made_in">Made in:</label>
+                    <input type="text" class="form-control" id="made_in" name="made_in">
+                  </div>
+                  <div class="form-group">
+                    <label for="owner_age">Owner age:</label>
+                    <input type="text" class="form-control" id="owner_age" name="owner_age">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone_number">Phone number:</label>
+                    <input type="text" class="form-control" id="phone_number" name="phone_number">
                   </div>
 
-                  <div class="form-group">
-                    <label for="discountValue">Discount Value:</label>
-                    <input type="text" class="form-control" placeholder="0.5" id="discountValue" name="discountValue" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="validUntil">Valid Until:</label>
-                    <input type="text" class="form-control" id="validUntil" placeholder="2023-11-20" name="validUntil" required>
-                  </div>
 
-                  <div class="form-group">
-                    <label for="rate">Rate:</label>
-                    <input type="number" class="form-control" id="rate" placeholder="4" name="rate" required>
-                  </div>
+
                   <div class="form-group">
                     <label for="image">Image:</label>
-                    <input type="file" class="form-control" id="image" name="image" required>
-                  </div>
-
-                  <div class="form-group">
-
-                    <label for="category-select">Category:</label>
-                    <select id="category-select" class="form-control" name="category_id" required></select>
+                    <input type="file" class="form-control" id="image" name="image">
                   </div>
                   <div class="form-group">
-                    <label for="max_usage">Max Usage:</label>
-                    <input type="text" class="form-control" id="max_usage"  name="max_usage" required>
+                    <label for="insurance_contact">insurance contact:</label>
+                    <input type="text" class="form-control" id="insurance_contact" name="insurance_contact">
                   </div>
+                  <div class="form-group">
+                    <label for="insurance_type">insurance type:</label>
+                    <input type="text" class="form-control" id="insurance_type" name="insurance_type">
+                  </div>
+                  <div class="form-group">
+                    <label for="insurance_price">insurance price:</label>
+                    <input type="text" class="form-control" id="insurance_price" name="insurance_price">
+                  </div>
+                  <div class="form-group">
+                    <label for="insurance_period">insurance period AR:</label>
+                    <input type="text" class="form-control" id="insurance_period" name="insurance_period">
+                  </div>
+                  <div class="form-group">
+                    <label for="commission">commission:</label>
+                    <input type="text" class="form-control" id="commission" name="commission">
+                  </div>
+                  <div class="form-group">
+                    <label for="insurance_price_ar">Insurance price AR:</label>
+                    <input type="text" class="form-control" id="insurance_price_ar" name="insurance_price_ar">
+                  </div>
+
+
+<!--                  <div class="form-group">-->
+<!--                    <label for="name_en">name EN:</label>-->
+<!--                    <input type="text" class="form-control" id="name_en" name="name_en">-->
+<!--                  </div>-->
+
+
 
                   <!-- Add other input fields for the remaining properties -->
                 </form>
@@ -231,11 +279,12 @@
             </div>
             <!-- /.card -->
           </div>
+
         </div>
         <div class="row">
           <div class="col-12">
             <form>
-              <input type="submit" id="submit" value="Create" class="btn btn-success float-right">
+              <input type="submit" id="submit" value="Update" class="btn btn-success float-right">
             </form>
           </div>
         </div>
@@ -260,79 +309,89 @@
   <!-- ./wrapper -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
+    // var id = urlParams.get('id');
+
+    var id = new URLSearchParams(window.location.search).get("id");
+
     $.ajax({
-      url: 'http://localhost:8080/api/public/category',
+      url: 'http://localhost:8080/api/public/insurance?id='+id,
       method: 'GET',
       success: function (data) {
-        const $categorySelect = $('#category-select');
-        $categorySelect.empty();
-        $.each(data, function (index, category) {
-          $categorySelect.append($('<option>', {
-            value: category.id,
-            text: category.name
-          }));
-        });
+        $('#car_type').val(data.car_type);
+        $('#car_brand').val(data.car_brand);
+        $('#car_model').val(data.car_model);
+        $('#car_price').val(data.car_price);
+        $('#kilometers').val(data.kilometers);
+        $('#made_in').val(data.made_in);
+        $('#owner_age').val(data.owner_age);
+        $('#phone_number').val(data.phone_number);
+        // $('#name_en').val(data.name_en);
+      },
+      error: function (xhr, status, error) {
+        console.error('Form submission error:', error,status);
+        // Handle error response
       }
     });
 
-    $(document).ready(function () {
-      var urlParams = new URLSearchParams(window.location.search);
-      var businessId = urlParams.get('businessId');
 
+
+
+    $(document).ready(function () {
       $('form').submit(function (event) {
         event.preventDefault(); // prevent default form submission behavior
+        // name email status subscription_type logo category_id description terms_conditions
 
         // Get values from the form
-        const discountValue = $('#discountValue').val();
-        const name = $('#name').val();
-        const description = $('#description').val();
-        const validUntil = $('#validUntil').val();
-        const categoryId = $('#category-select').val();
-        const max_usage = $('#max_usage').val();
-        const rate = $('#rate').val();
+        const insurance_contact = $('#insurance_contact').val();
+        const insurance_period = $('#insurance_period').val();
+        const insurance_type = $('#insurance_type').val();
+        const insurance_price = $('#insurance_price').val();
+        const commission = $('#commission').val();
+        const insurance_price_ar = $('#insurance_price_ar').val();
+
+        // const name_en = $('#name_en').val();
         const files = $('#image')[0].files; // use [0] to get the DOM element
 
-        const token = localStorage.getItem('token');
         uploadImage(files, function (image) {
-
-        const formData = new FormData();
-        formData.append('images', image);
-        formData.append('discountValue', discountValue);
-        formData.append('validUntil', validUntil);
-        formData.append('name', name);
-        formData.append('is_available', true);
-        formData.append('rate', rate);
-        formData.append('businessId', businessId);
-        formData.append('category.id', categoryId);
-        formData.append('carBrand', 1);
-        formData.append('carModel', 1);
-        formData.append('description', description);
-        formData.append('max_usage', max_usage);
+        // Construct the form data
+        // const formData = new FormData();
+        // formData.append('name', name);
+        // formData.append('name_en', name_en);
+        // formData.append('image', imageFile);
+        const requestData = {
+          insurance_logo: image,
+          insurance_contact: insurance_contact,
+          insurance_type: insurance_type,
+          insurance_price: insurance_price,
+          insurance_period: insurance_period,
+          commission: commission,
+          insurance_price_ar: insurance_price_ar,
+          insuranceId: id ,
+          // other properties of the Category object
+        };
+          const queryString = $.param(requestData);
 
         // Submit the form data using AJAX
-        $.ajax({
-          url: 'http://localhost:8080/api/business/service/save',
-          type: 'POST',
-          data: formData,
-          processData: false,
-          contentType: false,
-          headers: {
-            Authorization: 'Bearer ' + token
-          },
+          $.ajax({
+            url: `http://localhost:8080/api/admin/insurance/accept_offer?${queryString}`,
+            type: 'PUT',
+            contentType: 'application/json',
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('token')
+            },
           success: function (data) {
             console.log('Form submission success:', data);
             // Clear the form
             $('form').trigger('reset');
             // Show a pop-up message
-            alert('Service submitted successfully!');
+            alert('Form submitted successfully!');
           },
           error: function (xhr, status, error) {
             console.error('Form submission error:', error);
             // Handle error response
           }
         });
-        });
-
+      });
       });
       function uploadImage(files, callback) {
         const formData = new FormData();
@@ -358,9 +417,28 @@
           },
         });
       }
+
+
     });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('.dropdown-toggle').dropdown();
 
+      $('#logout').click(function (e) {
+        e.stopPropagation(); // Prevent the click event from propagating to the document
 
+        localStorage.removeItem("token");
+        window.location.href = '/pages/examples/login-v2.html';
+      });
+
+      $(document).click(function (e) {
+        // Check if the clicked element is outside the dropdown
+        if (!$(e.target).parents('.dropdown-menu').length) {
+          $('.dropdown-menu').removeClass('show'); // Close the dropdown
+        }
+      });
+    });
   </script>
   <!-- jQuery -->
   <script src="../../plugins/jquery/jquery.min.js"></script>

@@ -128,9 +128,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/pages/examples/category.html" class="nav-link  ">
+            <a href="/pages/examples/Insurance.html" class="nav-link ">
               <i class="far fa-circle nav-icon"></i>
-              <p>Category </p>
+              <p>Insurance</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/pages/examples/category.html" class="nav-link ">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Category</p>
             </a>
           </li>
           <li class="nav-item">
@@ -269,12 +275,14 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-4">
-              <p class="mb-1 text-muted"><i class="fas fa-star mr-1"></i> Rate</p>
+              <p class="mb-1 text-muted"><i class="fas fa-star mr-1"></i> Coupon code</p>
               <strong class="ps-2">${response.coupon_code}</strong>
             </div>
             <div class="col-md-4">
-              <p class="mb-1 text-muted"><i class="fas fa-sync-alt mr-1"></i> Start Discount Value</p>
-              <strong class="ps-2">${response.service_discount * 100} %</strong>
+              <p class="mb-1 text-muted"><i class="fas fa-sync-alt mr-1"></i>Discount Value</p>
+              <strong class="ps-2">${response.discount_value > 1
+      ? response.discount_value
+      : (response.discount_value * 100) + '%'}</strong>
             </div>
             <div class="col-md-4">
               <p class="mb-1 text-muted"><i class="fas fa-sign-in-alt mr-1"></i> Available</p>

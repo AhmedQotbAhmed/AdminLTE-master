@@ -103,7 +103,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/business.html" class="nav-link  ">
+              <a href="/pages/examples/business.html" class="nav-link ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Business</p>
               </a>
@@ -115,13 +115,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/Insurance.html" class="nav-link ">
+              <a href="/pages/examples/Insurance.html" class="nav-link active ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Insurance</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/category.html" class="nav-link  ">
+              <a href="/pages/examples/category.html" class="nav-link ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Category</p>
               </a>
@@ -133,7 +133,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/event.html" class="nav-link  active">
+              <a href="/pages/examples/event.html" class="nav-link  ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Event</p>
               </a>
@@ -157,6 +157,7 @@
               </a>
             </li>
 
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -171,12 +172,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Event</h1>
+              <h1>Insurance</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Event</li>
+                <li class="breadcrumb-item active">Insurance</li>
               </ol>
             </div>
           </div>
@@ -189,44 +190,39 @@
         <div class="container-fluid">
           <div class="card card-solid">
             <!-- start Api git -->
-            <div class="d-flex justify-content-end">
-              <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                <button type="button" class="btn btn-block btn-outline-primary btn-lg"
-                  onclick="window.location.href='add_event.html'">
-                  Create Event
-                </button>
-              </div>
-            </div>
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <h5 class="breadcrumb-item active">Event List</h5>
+            <h3 class="card-title">Insurance List</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
               </button>
-              <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-              </button>
+
             </div>
           </div>
           <div class="card-body p-0">
             <table class="table table-striped projects text-center">
               <thead>
                 <tr>
-                  <th style="width: 10%">
+                  <th style="width: 1%">
                     ID
                   </th>
-                  <th style="width: 30%">
-                    Event Titel
+                  <th style="width: 20%">
+                    Car type
+                  </th>
+                  <th style="width: 20%">
+                    Car price
+                  </th>
+                  <th style="width: 20%">
+                    Status
                   </th>
 
-
-
-
+                  <th style="width: 20%">
+                  </th>
                 </tr>
               </thead>
               <tbody id="api-git-container">
@@ -235,7 +231,6 @@
               </tbody>
             </table>
           </div>
-
           <!-- /.card-body -->
 
 
@@ -243,37 +238,25 @@
 
           <!-- end Api git-->
 
+          <!-- /.card-body -->
           <div class="card-footer">
-            <br>
-          </div>
-          <hr>
-          <div class="col-sm-12">
-            <h5 class="breadcrumb-item active">Business Event:</h5>
-            <br>
-          </div>
-          <div class="card-body p-0">
-            <table class="table table-striped projects text-center">
-              <thead>
-              <tr>
-                <th style="width: 10%">
-                  ID
-                </th>
-                <th style="width: 30%">
-                  Event Titel
-                </th>
-                <th>
-                  Merchant Name
-                </th>
+            <nav aria-label="Contacts Page Navigation">
+              <ul class="pagination justify-content-center m-0">
+                <button id="prevButton" class="btn btn-primary"><i class="fas fa-chevron-left"></i></button>
+                <div class="pagination">
 
+                  <ul class="pagination justify-content-center m-0 pagination-list">
+                    <li class="page-item active"><a class="page-link"><i class="fas fa-circle"></i> 1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link"><i class="fas fa-circle"></i> 2</a></li>
+                  </ul>
+                </div>
 
+                <button id="nextButton" class="btn btn-primary"> <i class="fas fa-chevron-right"></i></button>
 
-              </tr>
-              </thead>
-              <tbody id="api-git">
+              </ul>
 
-
-              </tbody>
-            </table>
+            </nav>
           </div>
           <!-- /.card -->
 
@@ -299,83 +282,41 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script>
-    function Table(response, offset) {
-      console.log(response); // Check the response in the browser console
-      if (response && response.length > 0) { // Check if the response contains data
-        var container = $("#api-git");
-        container.empty(); // Clear the existing content
-
-        $.each(response, function (i, event) {
-
-
-          var cardHtml = `
-              <tr  >
-                        <td>
-                          ${event.id}
-                        </td>
-                        <td>
-                            <a>
-                              ${event.event_title}     ${event.event_sub_title}
-                                                          </a>
-
-                        </td>
-                        <td>
-                           ${event.name}
-                        </td>
-
-
-
-                        <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="view_event2.html?itemId=${event.id} &businessId=${event.business_id}">
-                  <i class="fas fa-folder"></i> View
-                </a>
-                            <a class="btn btn-danger btn-sm" onclick="confirmDelete(${event.id})">
-                                <i class="fas fa-trash">
-                                </i>
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
-
-            `;
-
-
-          container.append(cardHtml); // Append the generated card to the container
-        });
-      }
-    }   function populateTable(response, offset) {
+    function populateTable(response, offset) {
       console.log(response); // Check the response in the browser console
       if (response && response.length > 0) { // Check if the response contains data
         var container = $("#api-git-container");
         container.empty(); // Clear the existing content
 
-        $.each(response, function (i, event) {
+        $.each(response, function (i, category) {
 
 
           var cardHtml = `
               <tr  >
                         <td>
-                          ${event.id}
+                          ${category.id}
                         </td>
                         <td>
-                            <a>
-                              ${event.event_title}     ${event.event_sub_title}
-                                                          </a>
-
+                          ${category.car_type==0?"New":"Old"}
+                        </td>
+                        <td>
+                          ${category.car_price}
+                        </td>
+                         <td>
+                          ${category.insurance_price==null?"Pending":"Offerded"}
                         </td>
 
-
-
-
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="view_event.html?itemId=${event.id}">
-                  <i class="fas fa-folder"></i> View
-                </a>
-                            <a class="btn btn-danger btn-sm" onclick="confirmDelete(${event.id})">
-                                <i class="fas fa-trash">
+                    <a class="btn btn-primary btn-sm" href="insurance-update.html?id=${category.id}">
+                                <i class="fas fa-folder">
                                 </i>
-                                Delete
+                                Edit
                             </a>
+                      <a class="btn btn-danger btn-sm" onclick="confirmDelete(${category.id})">
+                      <i class="fas fa-trash"></i>
+                        Delete
+                      </a>
+
                         </td>
                     </tr>
 
@@ -387,36 +328,35 @@
       }
     }
 
-    // Rest of your existing code
-    function confirmDelete(serviceId) {
+    function confirmDelete(categoryId) {
       // Display a confirmation dialog to the user
-      const confirmDelete = confirm('Are you sure you want to delete this service?');
+      const confirmDelete = confirm('Are you sure you want to delete this insurance?');
 
       if (confirmDelete) {
         // User confirmed the deletion, perform the actual deletion logic
-        deleteCategory(serviceId);
+        deleteCategory(categoryId);
       } else {
         // User canceled the deletion, do nothing or handle the cancellation if needed
         console.log('Deletion canceled by the user.');
       }
     }
-    function deleteCategory(serviceId) {
+    function deleteCategory(categoryId) {
 
       $.ajax({
-        url: `http://localhost:8080/api/admin/event-offers/${serviceId}`,
+        url: `http://localhost:8080/api/admin/insurance/${categoryId}`,
         method: 'DELETE',
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token')
         },
         success: function (response) {
           // Handle the success response, such as updating the UI or reloading the category list.
-          console.log('service deleted successfully.');
+          console.log('Category deleted successfully.');
           // Example: You can refresh the page after successful deletion.
           window.location.reload();
         },
         error: function (error) {
           // Handle the error response if the deletion fails.
-          console.error('Error deleting :', error);
+          console.error('Error deleting category:', error);
         }
       });
     }
@@ -424,28 +364,19 @@
 
   <script>
     $.ajax({
-      url: "http://localhost:8080/api/public/event-offers", // Set the default offset to 1
+      url: "http://localhost:8080/api/admin/insurances", // Set the default offset to 1
       type: "GET",
       dataType: "json",
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token')
+      },
       success: function (response) {
         populateTable(response, 1); // Pass the default offset value to the populateTable function
       },
       error: function (xhr, status, error) {
         console.log(error); // Log any errors in the browser console
       }
-    });    $.ajax({
-      url: "http://localhost:8080/api/public/event-offers/business-events", // Set the default offset to 1
-      type: "GET",
-      dataType: "json",
-      success: function (response) {
-        Table(response, 1); // Pass the default offset value to the populateTable function
-      },
-      error: function (xhr, status, error) {
-        console.log(error); // Log any errors in the browser console
-      }
     });
-
-
 
 
     var currentPage = 1;
@@ -454,7 +385,7 @@
       if (currentPage > 1) {
         currentPage--;
         $.ajax({
-          url: "http://localhost:8080/api/public/event-offers?offset=" + (currentPage - 1),
+          url: "http://localhost:8080/api/public/category?offset=" + (currentPage - 1),
           type: "GET",
           dataType: "json",
           success: function (response) {
@@ -474,7 +405,7 @@
     $("#nextButton").click(function () {
       currentPage++;
       $.ajax({
-        url: "http://localhost:8080/api/public/event-offers?offset=" + (currentPage - 1),
+        url: "http://localhost:8080/api/public/category?offset=" + (currentPage - 1),
         type: "GET",
         dataType: "json",
         success: function (response) {
@@ -507,15 +438,8 @@
 
 
 
+
   </script>
-  <!-- jQuery -->
-  <script src="../../plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="../../dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="../../dist/js/demo.js"></script>
   <script>
     $(document).ready(function () {
       $('.dropdown-toggle').dropdown();
@@ -535,6 +459,14 @@
       });
     });
   </script>
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
 </body>
 
 </html>
