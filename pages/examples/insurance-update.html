@@ -317,9 +317,23 @@
       url: 'http://localhost:8080/api/public/insurance?id='+id,
       method: 'GET',
       success: function (data) {
-        $('#car_type').val(data.car_type);
-        $('#car_brand').val(data.car_brand);
-        $('#car_model').val(data.car_model);
+        $('#car_type').val(data.car_type==1?"New":"Old");
+
+
+        $.ajax({
+          url: 'http://localhost:8080/api/public/car_brand/'+ data.car_brand_id,
+          method: 'GET',
+          success: function (brand) {
+            $('#car_brand').val(brand.name);
+            for (var i = 0; i < brand.carModels.length; i++) {
+              if (brand.carModels[i].id === data.car_model_id) {
+                $('#car_model').val(brand.carModels[i].name);
+                break; // Exit the loop once the model is found
+              }
+            }
+          }
+        });
+
         $('#car_price').val(data.car_price);
         $('#kilometers').val(data.kilometers);
         $('#made_in').val(data.made_in);
@@ -332,6 +346,7 @@
         // Handle error response
       }
     });
+
 
 
 

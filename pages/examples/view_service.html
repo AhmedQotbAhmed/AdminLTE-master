@@ -195,11 +195,55 @@
           </div>
         </div>
       </div><!-- /.container-fluid -->
+
     </section>
 
     <!-- Main content -->
     <section class="content">
 
+      <script>
+
+        function confirmActivate() {
+          var urlParams = new URLSearchParams(window.location.search);
+          var serviceId = urlParams.get('itemId');
+          // Display a confirmation dialog to the user
+          const confirmDelete = confirm('Are you sure you want to Activate the business?');
+
+          if (confirmDelete) {
+            // User confirmed the deletion, perform the actual deletion logic
+            Activate(serviceId);
+          } else {
+            // User canceled the deletion, do nothing or handle the cancellation if needed
+            console.log('Activate the business canceled by the user.');
+          }
+        }
+        function Activate(serviceId) {
+
+          $.ajax({
+            url: `http://localhost:8080/api/admin/services/active/${serviceId}`,
+            method: 'PUT',
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('token')
+            },
+            success: function (response) {
+              // Handle the success response, such as updating the UI or reloading the category list.
+              console.log('service deleted successfully.');
+              // Example: You can refresh the page after successful deletion.
+              window.location.reload();
+            },
+            error: function (error) {
+              // Handle the error response if the deletion fails.
+              console.error('Error deleting :', error);
+            }
+          });
+        }
+      </script>
+      <div>
+
+        <a class="btn btn-success btn-sm" onclick="confirmActivate()">
+          Activate
+        </a>
+      </div>
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Service View</h3>
@@ -279,38 +323,38 @@
               <strong class="ps-2">${response.rate}</strong>
             </div>
             <div class="col-md-4">
-              <p class="mb-1 text-muted"><i class="fas fa-sync-alt mr-1"></i> Start Discount Value</p>
+              <p class="mb-1 text-muted"><i class="fas fa-comment-dollar"></i> Start Discount Value</p>
               <strong class="ps-2">${response.discount_value > 1
       ? response.discount_value
       : (response.discount_value * 100) + '%'}</strong>
             </div>
             <div class="col-md-4">
-              <p class="mb-1 text-muted"><i class="fas fa-sign-in-alt mr-1"></i> Available</p>
+              <p class="mb-1 text-muted"><i class="fas fa-battery-full mr-1"></i> Available</p>
               <strong class="ps-2">${response.is_available}</strong>
             </div>
           </div>
           <hr>
           <div class="row">
             <div class="col-md-4">
-              <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i> Max Usage</p>
+              <p class="mb-1 text-muted mr-1"><i class="fas fa-cubes"></i> Max Usage</p>
               <strong class="ps-2">${response.max_usage}</strong>
             </div>
                 <div class="col-md-4">
-              <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i> Valid until</p>
+              <p class="mb-1 text-muted mr-1"><i class="fas fa-calendar-check"></i> Valid until</p>
               <strong class="ps-2">${response.validUntil}</strong>
             </div>      <div class="col-md-4">
-              <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i> Readme num</p>
+              <p class="mb-1 text-muted mr-1"><i class="fas fa-cart-arrow-down"></i> Readme num</p>
               <strong class="ps-2">${response.readme_num}</strong>
             </div>
           </div>
            <hr>
           <div class="row">
             <div class="col-md-4">
-              <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i>Schedule mode</p>
+              <p class="mb-1 text-muted mr-1"><i class="fas fa-calendar-alt"></i>Schedule mode</p>
               <strong class="ps-2">${response.schedule_mode==0?"Active":"Not Active"}</strong>
             </div>
                 <div class="col-md-4">
-              <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i> Creation Date</p>
+              <p class="mb-1 text-muted mr-1"><i class="fas fa-calendar"></i> Creation Date</p>
               <strong class="ps-2">${response.creationDate}</strong>
             </div>      <div class="col-md-4">
               <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i> Category Name</p>
@@ -320,13 +364,13 @@
             <hr>
           <div class="row">
             <div class="col-md-4">
-              <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i>Business Name</p>
+              <p class="mb-1 text-muted mr-1"><i class="fas fa-building"></i>Business Name</p>
               <strong class="ps-2">${response.business.name}</strong>
             </div>
                 <div class="col-md-4">
-              <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i> visits num</p>
+              <p class="mb-1 text-muted mr-1"><i class="fas fa-chart-line"></i> visits num</p>
               <strong class="ps-2">${response.business.visits_num}</strong>
-            </div>      <
+            </div>
           </div>
 
           </div>

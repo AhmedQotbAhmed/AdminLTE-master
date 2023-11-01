@@ -275,18 +275,18 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-4">
-              <p class="mb-1 text-muted"><i class="fas fa-star mr-1"></i> Coupon code</p>
-              <strong class="ps-2">${response.coupon_code}</strong>
+              <p class="mb-1 text-muted"><i class="fas fa-star mr-1"></i> business_name</p>
+              <strong class="ps-2">${response.business_name??""}</strong>
             </div>
             <div class="col-md-4">
               <p class="mb-1 text-muted"><i class="fas fa-sync-alt mr-1"></i>Discount Value</p>
-              <strong class="ps-2">${response.discount_value > 1
-      ? response.discount_value
-      : (response.discount_value * 100) + '%'}</strong>
+              <strong class="ps-2">${response.service_discount > 1
+      ? response.service_discount
+      : (response.service_discount * 100) + '%'}</strong>
             </div>
             <div class="col-md-4">
-              <p class="mb-1 text-muted"><i class="fas fa-sign-in-alt mr-1"></i> Available</p>
-              <strong class="ps-2">${response.is_available}</strong>
+              <p class="mb-1 text-muted"><i class="fas fa-sign-in-alt mr-1"></i>  Coupon code</p>
+              <strong class="ps-2">${response.coupon_code}</strong>
             </div>
           </div>
           <hr>
@@ -304,6 +304,18 @@
               <strong class="ps-2">${response.schedule_time}</strong>
             </div>
           </div>
+             <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i> comment</p>
+              <strong class="ps-2">${response.comment_str??"---"}</strong>
+            </div>
+            <div class="col-md-12">
+              <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i> Rejected Reason</p>
+              <strong class="ps-2">${response.reason}</strong>
+            </div>
+
+          </div>
         </div>
       </div>
       <br>
@@ -319,17 +331,15 @@
                     <th style="width: 15%">Phone Number</th>
                     <th style="width: 15%">Open Time</th>
                     <th style="width: 15%">Closure Time</th>
-                    <th style="width: 15%">Working days</th>
                   </tr>
                 </thead>
                 <tbody class="branch">
-                  <tr>
+                  <tr>  <td>${response.business_branch_ID}</td>
                     <td>${response.business_branch_ID}</td>
                     <td><a href="${response.locationLink}">${response.business_branch_address}</a></td>
                     <td>${response.branch_phone_number}</td>
                     <td>${response.branch_openTime}</td>
                     <td>${response.branch_closureTime}</td>
-                    <td>${response.branch_working_days}</td>
                     <td class="project-actions text-right"></td>
                   </tr>
                 </tbody>

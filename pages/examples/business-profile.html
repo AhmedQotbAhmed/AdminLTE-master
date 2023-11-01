@@ -199,12 +199,57 @@
 
     <!-- Main content -->
     <section class="content">
+<script>
 
+  function confirmActivate() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var serviceId = urlParams.get('itemId');
+    // Display a confirmation dialog to the user
+    const confirmDelete = confirm('Are you sure you want to Activate the business?');
+
+    if (confirmDelete) {
+      // User confirmed the deletion, perform the actual deletion logic
+      Activate(serviceId);
+    } else {
+      // User canceled the deletion, do nothing or handle the cancellation if needed
+      console.log('Activate the business canceled by the user.');
+    }
+  }
+  function Activate(serviceId) {
+
+    $.ajax({
+      url: `http://localhost:8080/api/admin/business/active/${serviceId}`,
+      method: 'PUT',
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (response) {
+        // Handle the success response, such as updating the UI or reloading the category list.
+        console.log('service deleted successfully.');
+        // Example: You can refresh the page after successful deletion.
+        window.location.reload();
+      },
+      error: function (error) {
+        // Handle the error response if the deletion fails.
+        console.error('Error deleting :', error);
+      }
+    });
+  }
+</script>
       <div class="container-fluid">
+        <div>
+
+          <a class="btn btn-success btn-sm" onclick="confirmActivate()">
+            Activate
+          </a>
+        </div>
         <div class="card card-solid">
           <!-- start Api git -->
+
           <div class="d-flex justify-content-end">
+
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+
               <button type="button" class="btn btn-block btn-outline-primary btn-lg"
                       onclick="redirectToServicePage()">
                 Create Services
@@ -220,6 +265,7 @@
         <div class="card-header">
 
           <div class="card-tools">
+
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
               <i class="fas fa-minus"></i>
             </button>
@@ -228,10 +274,10 @@
         </div>
         <div class="card-body p-0">
 
-          <dive id="api-git-container">
+          <div id="api-git-container">
 
 
-          </dive>
+          </div>
         </div>
         <!-- /.card-body -->
 

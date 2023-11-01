@@ -320,13 +320,64 @@
                     <tr>
                       <th>Name</th>
                       <th>Discount Value</th>
+                      <th>Business Name</th>
                       <th>Category Name</th>
-                      <th>Rate</th>
-                      <th>Merchant Name</th>
-                      <th>View</th>
+                      <th class="project-actions text-right">View</th>
                     </tr>
                     </thead>
                     <tbody id="api-git-container">
+
+
+                    </tbody>
+                  </table>
+
+                </div>
+
+
+              </div>
+            </div>
+
+          </section>          <section class="col-lg-12 connectedSortable">
+
+
+            <div class="card direct-chat" style="max-height: 100%; overflow-y: auto;">
+              <div class="card-header">
+                <h3 class="card-title">Most Visited Business</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <table class="table table-striped table-valign-middle">
+                    <thead>
+                    <tr>
+                      <th>
+                       Id
+                      </th>
+                      <th style="width: 20%">
+                        Business Name
+                      </th>
+                      <th>
+                        Rate %
+                      </th>
+                      <th>
+                        Visits num
+                      </th>
+                      <th>
+                        Start Discount Value
+                      </th>
+
+                      <th class="project-actions text-right">View</th>
+                    </tr>
+                    </thead>
+                    <tbody id="api-git-visited">
 
 
                     </tbody>
@@ -433,14 +484,11 @@
 
                           <td>
                        ${service.products.name}
-
                           </td>
                           <td>
                              ${service.discount_value * 100}%
                           </td>
-                          <td >
-                             ${service.rate}
-                          </td>
+
                           <td >
                      ${service.business.name}
                             </td>
@@ -461,6 +509,48 @@
         container.append(cardHtml); // Append the generated card to the container
       });
     }
+  } function find_mosv_Visited(response, offset) {
+    // console.log(response); // Check the response in the browser console
+  // Check if the response contains data
+      var container = $("#api-git-visited");
+      container.empty(); // Clear the existing content
+      $.each(response, function (i, business) {
+
+        var cardHtml = `
+              <tr>
+                 <td >
+                           ${business.id}
+                        </td>
+                        <td>
+                           ${business.name}
+                        </td>
+                           <td >
+                           ${business.rate}
+                        </td>
+                            <td>
+                           ${business.visits_num}
+                        </td>
+                        <td>
+                           ${business.start_discount_val}
+                        </td>
+
+
+
+
+                        <td class="project-actions text-right">
+                            <a class="btn btn-primary btn-sm" href="business-profile.html?itemId=${business.id}">
+                  <i class="fas fa-folder"></i> View
+                </a>
+
+                        </td>
+                    </tr>
+
+            `;
+
+
+        container.append(cardHtml); // Append the generated card to the container
+      });
+
   }
 
   function populatefaq(response, offset) {
@@ -549,8 +639,8 @@
     success: function (data) {
       $('#business').text(data.total_sales_num);
       $('#users').text(data.clients_num);
-      $('#services').text(data.visits_num);
-      $('#insurance').text(data.services_num);
+      $('#services').text(data.services_num);
+      $('#insurance').text(data.visits_num);
 
     }
   });
@@ -560,6 +650,18 @@
     dataType: "json",
     success: function (response) {
       populateTable(response, 1);
+    },
+    error: function (xhr, status, error) {
+      console.log(error); // Log any errors in the browser console
+    },
+  });
+
+  $.ajax({
+    url: "http://localhost:8080/api/public/find_most_visited", // Set the default offset to 1
+    type: "GET",
+    dataType: "json",
+    success: function (response) {
+      find_mosv_Visited(response, 1);
     },
     error: function (xhr, status, error) {
       console.log(error); // Log any errors in the browser console
