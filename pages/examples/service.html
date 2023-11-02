@@ -126,6 +126,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="/pages/examples/promo_code.html" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Promo Code</p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="/pages/examples/region.html" class="nav-link  ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Region</p>
@@ -331,9 +337,9 @@
                         <td class="project-state">
                          ${service.category_name}
                           </td>
-                                <td class="project-state">
-                         ${service.is_available}
-                          </td>
+                              <td class="project-state">
+                            <span class="badge ${service.is_available == false ? 'badge-primary' : 'badge-success'}">   ${service.is_available ==false ? 'false' : 'true'}</span>
+                        </td>
                         <td class="project-actions text-right">
                                  <a class="btn btn-primary btn-sm" href="view_service.html?itemId=${service.id}">
                   <i class="fas fa-folder"></i> View

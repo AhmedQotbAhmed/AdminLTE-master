@@ -126,6 +126,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="/pages/examples/promo_code.html" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Promo Code</p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="/pages/examples/region.html" class="nav-link  ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Region</p>
@@ -227,7 +233,7 @@
                     Start Discount Value
                   </th>
                   <th>
-                    Totel Invoice
+                    Visits Num
                   </th>
                   <th style="width: 8%" class="text-center">
                     Status
@@ -309,22 +315,21 @@
                           ${business.id}
                         </td>
                         <td>
-                            <a>
-                              ${business.name}
-                                                          </a>
-
+                           <a>${business.name}  </a>
                         </td>
                         <td>
-                           ${business.start_discount_val}
-                        </td>
-                        <td >
                            ${business.rate}
                         </td>
                         <td >
+                           ${business.start_discount_val}
+                        </td>
+                        <td >
+                             ${business.visits_num}
+                         </td>
 
-                          </td>
-                        <td class="project-state">
-                            <span class="badge badge-success}">  active</span>
+                            </td>
+                              <td class="project-state">
+                            <span class="badge ${business.status == "active" ? 'badge-primary' : 'badge-success'}">   ${business.status =="active" ? 'Active' : 'Not Active'}</span>
                         </td>
                         <td class="project-actions text-right">
                             <a class="btn btn-primary btn-sm" href="business-profile.html?itemId=${business.id}">
