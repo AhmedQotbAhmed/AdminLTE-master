@@ -127,6 +127,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="/pages/examples/region.html" class="nav-link  ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Region</p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="/pages/examples/carbrand.html" class="nav-link  ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Car Brand</p>
@@ -204,14 +210,14 @@
                     <label for="name">Name AR:</label>
                     <input type="text" class="form-control" id="name" name="name">
                   </div>
-<!--                  <div class="form-group">-->
-<!--                    <label for="name_en">name EN:</label>-->
-<!--                    <input type="text" class="form-control" id="name_en" name="name_en">-->
-<!--                  </div>-->
-<!--                  <div class="form-group">-->
-<!--                    <label for="image">Image:</label>-->
-<!--                    <input type="file" class="form-control" id="image" name="image">-->
-<!--                  </div>-->
+                  <div class="form-group">
+                    <label for="name_en">name EN:</label>
+                    <input type="text" class="form-control" id="name_en" name="name_en">
+                  </div>
+                  <div class="form-group">
+                    <label for="image">Image:</label>
+                    <input type="file" class="form-control" id="image" name="image">
+                  </div>
 
 
                   <!-- Add other input fields for the remaining properties -->
@@ -262,9 +268,10 @@
 
         // Get values from the form
         const name = $('#name').val();
-        // const name_en = $('#name_en').val();
-        const imageInput = $('#image')[0];
-        const imageFile = imageInput.files[0];
+        const name_en = $('#name_en').val();
+        const files = $('#image')[0].files; // use [0] to get the DOM element
+        const token = localStorage.getItem('token');
+        uploadImage(files, function (image) {
         // Construct the form data
         // const formData = new FormData();
         // formData.append('name', name);
@@ -273,6 +280,8 @@
 
         const requestData = {
           name: name,
+          name_en: name_en,
+          image: image,
           // other properties of the Category object
         };
         // Submit the form data using AJAX
@@ -297,9 +306,34 @@
           }
         });
       });
+      });
     });
   </script>
   <script>
+    function uploadImage(files, callback) {
+      const formData = new FormData();
+
+      for (let i = 0; i < files.length; i++) {
+        formData.append('file', files[i]);
+      }
+
+      $.ajax({
+        url: "http://localhost:8080/api/user/s3/upload",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        headers: {
+          Authorization: 'Bearer ' +  localStorage.getItem('token')
+        },
+        success: function (response) {
+          callback(response); // Pass the response to the callback function
+        },
+        error: function (xhr, status, error) {
+          console.log(error); // log any errors in the browser console
+        },
+      });
+    }
     $(document).ready(function () {
       $('.dropdown-toggle').dropdown();
 

@@ -126,6 +126,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="/pages/examples/region.html" class="nav-link  ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Region</p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="/pages/examples/carbrand.html" class="nav-link active ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Car Brand</p>
@@ -192,7 +198,7 @@
             <div class="d-flex justify-content-end">
               <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
                 <button type="button" class="btn btn-block btn-outline-primary btn-lg"
-                  onclick="window.location.href='/pages/examples/brand-add.html'">
+                  onclick="window.location.href='/pages/examples/brand_add.html'">
                   Create Car Brand
                 </button>
               </div>
@@ -297,7 +303,7 @@
               <td>${brand.id}</td>
               <td><a>${brand.name}</a></td>
               <td class="project-actions text-right">
-                <a class="btn btn-primary btn-sm" href="contacts6.html?itemId=${brand.id}">
+                <a class="btn btn-primary btn-sm" href="car.html?itemId=${brand.id}">
                   <i class="fas fa-folder"></i> View
                 </a>
               <a class="btn btn-danger btn-sm" onclick="confirmDelete(${brand.id})">

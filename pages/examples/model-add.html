@@ -246,7 +246,8 @@
   <script>
     // var id = urlParams.get('id');
 
-
+    var urlParams = new URLSearchParams(window.location.search);
+    var region = urlParams.get('itemId');
 
     $(document).ready(function () {
       $('form').submit(function (event) {
@@ -259,16 +260,21 @@
         // Construct the form data
         const formData = new FormData();
         formData.append('name', name);
-
-
+        const regionData = {
+          id: region,
+        };
+        const requestData = {
+          name: name,
+          car_brand: regionData,
+          // other properties of the Category object
+        };
 
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/admin/car_brand',
+          url: 'http://localhost:8080/api/admin/car_model',
           type: 'POST',
-          data: formData,
-          processData: false,
-          contentType: false,
+          data: JSON.stringify(requestData), // Send JSON data in the request body
+          contentType: 'application/json',
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('token')
           },
