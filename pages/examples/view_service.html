@@ -219,7 +219,7 @@
           var urlParams = new URLSearchParams(window.location.search);
           var serviceId = urlParams.get('itemId');
           // Display a confirmation dialog to the user
-          const confirmDelete = confirm('Are you sure you want to Activate the business?');
+          const confirmDelete = confirm('Are you sure you want to Activate it?');
 
           if (confirmDelete) {
             // User confirmed the deletion, perform the actual deletion logic
@@ -250,12 +250,7 @@
           });
         }
       </script>
-      <div>
 
-        <a class="btn btn-success btn-sm" onclick="confirmActivate()">
-          Activate
-        </a>
-      </div>
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Service View</h3>
@@ -335,7 +330,7 @@
               <strong class="ps-2">${response.rate}</strong>
             </div>
             <div class="col-md-4">
-              <p class="mb-1 text-muted"><i class="fas fa-comment-dollar"></i> Start Discount Value</p>
+              <p class="mb-1 text-muted"><i class="fas fa-comment-dollar"></i> Discount Value</p>
               <strong class="ps-2">${response.discount_value > 1
       ? response.discount_value
       : (response.discount_value * 100) + '%'}</strong>
@@ -419,12 +414,14 @@
                 <a class="float-right">${response.category_name}</a>
               </p>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-              <strong><i class="fas fa-user-circle" style="color: #6F42C1;"></i></strong>
-              <p class="mb-0">
-                <a class="float-right">${response.discount_value * 100}%</a>
-              </p>
-            </li>
+           <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+           <div class="form-group">
+             <i class="form-control  btn-lg fas fa-user-circle" style="color: #6F42C1;" onclick="confirmActivate()"></i>
+             </div>
+            <p class="mb-0">
+              <a class="float-right">${response.is_available}</a>
+            </p>
+          </li>
           </ul>
         </div>
       </div>

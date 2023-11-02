@@ -227,6 +227,42 @@
       console.log('Activate the business canceled by the user.');
     }
   }
+  function confirmTopRate() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var Id = urlParams.get('itemId');
+    // Display a confirmation dialog to the user
+    const confirmTopRate = confirm('Are you sure you want to proceed?');
+    // top_rate
+    const top_rate = $('#top_rate').val();
+    const requestData = {
+      top_rate: top_rate,
+    };
+    if (confirmTopRate) {
+      $.ajax({
+        url: `http://localhost:8080/api/admin/business/top_rate/${Id}`,
+        method: 'PUT',
+        data: JSON.stringify(requestData), // Send JSON data in the request body
+        contentType: 'application/json',
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (response) {
+          // Handle the success response, such as updating the UI or reloading the category list.
+          console.log('service deleted successfully.');
+          // Example: You can refresh the page after successful deletion.
+          window.location.reload();
+        },
+        error: function (error) {
+          // Handle the error response if the deletion fails.
+          console.error('Error deleting :', error);
+        }
+      });
+
+    } else {
+      // User canceled the deletion, do nothing or handle the cancellation if needed
+      console.log('Activate the business canceled by the user.');
+    }
+  }
   function Activate(serviceId) {
 
     $.ajax({
@@ -248,30 +284,6 @@
     });
   }
 </script>
-      <div class="container-fluid">
-        <div>
-
-          <a class="btn btn-success btn-sm" onclick="confirmActivate()">
-            Activate
-          </a>
-        </div>
-        <div class="card card-solid">
-          <!-- start Api git -->
-
-          <div class="d-flex justify-content-end">
-
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-
-              <button type="button" class="btn btn-block btn-outline-primary btn-lg"
-                      onclick="redirectToServicePage()">
-                Create Services
-              </button>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="card">
         <div class="card-header">
@@ -365,6 +377,7 @@
               <p class="mb-1 text-muted mr-1"><i class="fas fa-sort-numeric-up"></i> Visits Number</p>
               <strong class="ps-2">${response.visits_num}</strong>
             </div>
+
             <div class="col-md-6">
               <p class="mb-1 text-muted mr-1"><i class="fas fa-audio-description"></i> Description</p>
               <strong class="ps-2">${response.description}</strong>
@@ -396,9 +409,7 @@
                     <th style="width: 15%">
                       Closure Time
                     </th>
-                    <th style="width: 15%">
-                      Working days
-                    </th>
+
                   </tr>
                 </thead>
                 <tbody class="branch">
@@ -444,10 +455,26 @@
             </p>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-            <strong><i class="fas fa-user-circle" style="color: #6F42C1;"></i></strong>
+           <div class="form-group">
+           <i class="form-control  btn-lg fas fa-user-circle" style="color: #6F42C1;" onclick="confirmActivate()"></i>
+             </div>
             <p class="mb-0">
               <a class="float-right">${response.status}</a>
             </p>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+             <div class="form-group">
+              <a class="form-control btn badge-primary btn-sm" onclick="confirmTopRate()"> Activate</a>
+             </div>
+             <div class="form-group">
+                    <select class="form-control" id="top_rate" name="top_rate">
+                        <option value="">Select</option>
+                      <option value="1">Top</option>
+                      <option value="0">Normal</option>
+                    </select>
+                  </div>
+
+
           </li>
         </ul>
       </div>
@@ -468,7 +495,7 @@
           <td>${branch.phone_number}</td>
           <td>${branch.openTime}</td>
           <td>${branch.closureTime}</td>
-          <td>${branch.working_days ??""}</td>
+
         </tr>`;
           });
           $('.branch').append(html);
