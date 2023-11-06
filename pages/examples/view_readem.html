@@ -324,7 +324,7 @@
             </div>
             <div class="col-md-12">
               <p class="mb-1 text-muted mr-1"><i class="fas fa-clock"></i> Rejected Reason</p>
-              <strong class="ps-2">${response.reason}</strong>
+              <strong class="ps-2">${response.reason??"---"}</strong>
             </div>
 
           </div>
@@ -347,7 +347,6 @@
                 </thead>
                 <tbody class="branch">
                   <tr>  <td>${response.business_branch_ID}</td>
-                    <td>${response.business_branch_ID}</td>
                     <td><a href="${response.locationLink}">${response.business_branch_address}</a></td>
                     <td>${response.branch_phone_number}</td>
                     <td>${response.branch_openTime}</td>
@@ -386,9 +385,20 @@
             </p>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-            <strong><i class="fas fa-user-circle" style="color: #6F42C1;"></i></strong>
+            <strong>
+            <i class="fas fa-user-circle" style="color: #6F42C1;"></i></strong>
             <p class="mb-0">
-              <a class="float right">${response.user_name}</a>
+
+                                <a  href="profile.html?itemId=${response.user_id}">
+                                   View User
+                               </a>
+            </p>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <strong>
+            <i class="fas fa-file-invoice-dollar" style="color: #6F42C1;"></i></strong>
+              <p class="mb-0">
+                  <a   class="invoice-link"  href="#"  onclick="openImageInNewWindow('${response.invoiced_path}')"> View Invoice</a>
             </p>
           </li>
         </ul>
@@ -402,23 +412,36 @@
 
   }
 
-  function downloadImage(keyName, callback) {
 
-
-    $.ajax({
-      url: "http://localhost:8080/api/public/s3/download?keyName=" + keyName,
-      type: "GET",
-      xhrFields: {
-        responseType: "blob",
-      },
-      success: function (response) {
-        callback(response);
-      },
-      error: function (xhr, status, error) {
-        console.log(error); // log any errors in the browser console
-      },
+  // Add an event listener to the "View Invoice" link
+  function openImageInNewWindow(keyName) {
+    downloadImage(keyName, function (response) {
+      var imageUrl = URL.createObjectURL(response);
+      var newWindow = window.open(imageUrl, "_blank");
+      if (newWindow) {
+        newWindow.focus();
+      }
     });
   }
+
+          function downloadImage(keyName, callback) {
+
+
+            $.ajax({
+              url: "http://localhost:8080/api/public/s3/download?keyName=" + keyName,
+              type: "GET",
+              xhrFields: {
+                responseType: "blob",
+              },
+              success: function (response) {
+                console.log(response)
+                callback(response);
+              },
+              error: function (xhr, status, error) {
+                console.log(keyName+ "  -  "+error); // log any errors in the browser console
+              },
+            });
+          }
 
 
   $(document).ready(function () {
