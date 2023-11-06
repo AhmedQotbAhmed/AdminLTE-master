@@ -301,7 +301,7 @@
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/pages/examples/Insurance.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -580,7 +580,8 @@
 
         var cardHtml = `
 
-                   <a href="/pages/examples/faq-update.html?id=${faq.id}"><div class="direct-chat-msg">
+                   <a href="/pages/examples/faq-update.html?id=${faq.id}">
+                   <div class="direct-chat-msg">
                       <div class="direct-chat-infos clearfix">
                         <span class="direct-chat-name float-left">   ${faq.name}</span>
                       </div>
@@ -613,6 +614,7 @@
         // <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
 
         var cardHtml = `
+                   <a href="/pages/examples/profile.html?itemId=${user.id}">
 
                     <div class="direct-chat-msg">
                       <div class="direct-chat-infos clearfix">
@@ -626,7 +628,7 @@
                       </div>
                       <!-- /.direct-chat-text -->
                     </div>
-
+ </a>
 
               `;
 

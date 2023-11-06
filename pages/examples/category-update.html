@@ -119,24 +119,26 @@
                 <p>Insurance</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="/pages/examples/region.html" class="nav-link  ">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Region</p>
-              </a>
-            </li>
+
             <li class="nav-item">
               <a href="/pages/examples/category.html" class="nav-link active ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Category</p>
               </a>
             </li>
+
             <li class="nav-item">
               <a href="/pages/examples/promo_code.html" class="nav-link ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Promo Code</p>
               </a>
             </li>
+            <li class="nav-item">
+            <a href="/pages/examples/region.html" class="nav-link  ">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Region</p>
+            </a>
+          </li>
             <li class="nav-item">
               <a href="/pages/examples/carbrand.html" class="nav-link  ">
                 <i class="far fa-circle nav-icon"></i>
@@ -212,11 +214,11 @@
 
                 <form>
                   <div class="form-group">
-                    <label for="name">Name AR:</label>
+                    <label for="name">Name :</label>
                     <input type="text" class="form-control" id="name" name="name">
                   </div>
 <!--                  <div class="form-group">-->
-<!--                    <label for="name_en">name EN:</label>-->
+<!--                    <label for="name_en">Name EN:</label>-->
 <!--                    <input type="text" class="form-control" id="name_en" name="name_en">-->
 <!--                  </div>-->
 <!--                  <div class="form-group">-->
@@ -299,6 +301,7 @@
         // formData.append('image', imageFile);
         const requestData = {
           name: name,
+          // name_en: name_en,
           // other properties of the Category object
         };
 
