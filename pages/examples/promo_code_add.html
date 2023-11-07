@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -228,6 +230,13 @@
                   </div>
 
                   <div class="form-group">
+                    <label for="business-select">business:</label>
+                    <select id="business-select"  class="select2bs4"  multiple="multiple" data-placeholder="Select a business"
+                            style="width: 100%;">
+                    </select>
+                  </div>
+
+                  <div class="form-group">
                     <label for="max_usage">Max Usage:</label>
                     <input type="text" class="form-control" id="max_usage"  name="max_usage" required>
                   </div>
@@ -270,11 +279,36 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     // var id = urlParams.get('id');
+    $.ajax({
+      url: 'http://localhost:8080/api/admin/businesses',
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+        const $businessSelect = $('#business-select');
+        $businessSelect.empty();
 
+        // Add an initial empty option
+        $businessSelect.append($('<option>', {
+          value: '',
+          text: 'Select a business' // You can customize the label as needed
+        }));
+
+        // Populate the select with business options
+        $.each(data, function (index, business) {
+          $businessSelect.append($('<option>', {
+            value: business.id,
+            text: business.name
+          }));
+        });
+      }
+    });
     $(document).ready(function () {
       $('form').submit(function (event) {
         event.preventDefault();
         // name email status subscription_type logo category_id description terms_conditions
+        const selectedValue = $('#business-select').val();
 
         // Get values from the
         const discountValue = $('#discountValue').val();
@@ -293,8 +327,11 @@
           discountValue: discountValue,
           validUntil: validUntil,
           max_usage: max_usage,
+          businessIds: selectedValue,
           // other properties of the Category object
         };
+        // console.log('Form submission:', selectedValue);
+
         // Submit the form data using AJAX
         $.ajax({
           url: 'http://localhost:8080/api/admin/promo_code',
@@ -349,6 +386,23 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
+  <!-- Select2 -->
+  <script src="../../plugins/select2/js/select2.full.min.js"></script>
+
+  <script>
+    $(function () {
+      $('.select2bs4').select2({
+        theme: 'bootstrap4'
+      })})
+  </script>
 </body>
 
 </html>

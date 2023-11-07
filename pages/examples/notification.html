@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -312,11 +314,11 @@
                     <label for="description_u">Description :</label>
                     <textarea class="form-control" id="description_u" name="description_u"></textarea>
                   </div>
+
                   <div class="form-group">
-                    <label for="business-select">User:</label>
-                    <select id="business-select" class="form-control" name="business-select" required>
-                      <option value="">Select a business</option>
-                      <!-- Add other <option> elements here -->
+                    <label>User:</label>
+                    <select id="business-select"  class="select2bs4"  data-placeholder="Select a User"
+                            style="width: 100%;">
                     </select>
                   </div>
 
@@ -442,8 +444,6 @@
         // Get values from the form
         const title = $('#title_b').val();
         const description = $('#description_b').val();
-
-
         // Construct the form data
         // const formData = new FormData();
         // formData.append('title', title);
@@ -549,6 +549,11 @@
     });
   </script>
   <!-- jQuery -->
+  <!-- Bootstrap 4 -->
+  <!-- AdminLTE App -->
+  <!-- AdminLTE for demo purposes -->
+  <!-- jQuery -->
+  <!-- Bootstrap 4 -->
   <script src="../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -556,6 +561,15 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+  <!-- Select2 -->
+  <script src="../../plugins/select2/js/select2.full.min.js"></script>
+
+<script>
+  $(function () {
+  $('.select2bs4').select2({
+    theme: 'bootstrap4'
+  })})
+</script>
 </body>
 
 </html>
