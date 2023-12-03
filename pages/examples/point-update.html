@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Masla7ty | Contacts</title>
+  <title>Masla7ty | Add Service</title>
   <script>
     if (!localStorage.getItem('token'))
       window.location.href = '/pages/examples/login-v2.html';
@@ -51,6 +51,7 @@
           </ul>
         </li>
         <!-- end Logout -->
+
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
@@ -70,17 +71,16 @@
       <!-- Brand Logo -->
       <a href="../../index.html" class="brand-link">
         <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-          style="opacity: .8">
+          style="opacity: 0.8" />
         <span class="brand-text font-weight-light">Masla7ty</span>
       </a>
 
-      <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
-                                 with font-awesome or any other icon font library -->
+                                         with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
               <a href="../../index.html" class="nav-link ">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -88,7 +88,6 @@
                   Dashboard
                 </p>
               </a>
-
             </li>
             <li class="nav-item">
               <a href="/pages/examples/users.html" class="nav-link ">
@@ -103,7 +102,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/business.html" class="nav-link ">
+              <a href="/pages/examples/business.html" class="nav-link  ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Business</p>
               </a>
@@ -127,6 +126,7 @@
                 <p>Category</p>
               </a>
             </li>
+
             <li class="nav-item">
               <a href="/pages/examples/promo_code.html" class="nav-link ">
                 <i class="far fa-circle nav-icon"></i>
@@ -134,11 +134,11 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/region.html" class="nav-link  ">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Region</p>
-              </a>
-            </li>
+            <a href="/pages/examples/region.html" class="nav-link  ">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Region</p>
+            </a>
+          </li>
             <li class="nav-item">
               <a href="/pages/examples/carbrand.html" class="nav-link  ">
                 <i class="far fa-circle nav-icon"></i>
@@ -158,7 +158,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/pages/examples/faq.html" class="nav-link  ">
+              <a href="/pages/examples/faq.html" class="nav-link ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>FAQs</p>
               </a>
@@ -176,7 +176,6 @@
               </a>
             </li>
 
-
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -191,12 +190,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Point</h1>
+              <h1>Category</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Point</li>
+                <li class="breadcrumb-item active">Category</li>
               </ol>
             </div>
           </div>
@@ -205,83 +204,42 @@
 
       <!-- Main content -->
       <section class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Category</h3>
 
-        <div class="container-fluid">
-          <div class="card card-solid">
-            <!-- start Api git -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+
+                <form>
+                  <div class="form-group">
+                    <label for="name">Name :</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                  </div>
+
+                  <!-- Add other input fields for the remaining properties -->
+                </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <form>
+              <input type="submit" id="submit" value="Update" class="btn btn-success float-right">
+            </form>
           </div>
         </div>
-
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Point Requests List</h3>
-
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-
-            </div>
-          </div>
-          <div class="card-body p-0">
-            <table class="table table-striped projects text-center">
-              <thead>
-                <tr>
-                  <th style="width: 1%">
-                    ID
-                  </th>
-                  <th style="width: 20%">
-                     Name
-                  </th>
-                  <th >
-                    User id
-                  </th>
-                  <th >
-                    point
-                  </th>
-                  <th >
-                    Promo code
-                  </th>
-
-                  <th >
-                  </th>
-                </tr>
-              </thead>
-              <tbody id="api-git-container">
-
-
-              </tbody>
-            </table>
-          </div>
-          <!-- /.card-body -->
-
-
-
-
-          <!-- end Api git-->
-
-          <!-- /.card-body -->
-          <div class="card-footer">
-            <nav aria-label="Contacts Page Navigation">
-              <ul class="pagination justify-content-center m-0">
-                <button id="prevButton" class="btn btn-primary"><i class="fas fa-chevron-left"></i></button>
-                <div class="pagination">
-
-                  <ul class="pagination justify-content-center m-0 pagination-list">
-                    <li class="page-item active"><a class="page-link"><i class="fas fa-circle"></i> 1</a>
-                    </li>
-                    <li class="page-item"><a class="page-link"><i class="fas fa-circle"></i> 2</a></li>
-                  </ul>
-                </div>
-
-                <button id="nextButton" class="btn btn-primary"> <i class="fas fa-chevron-right"></i></button>
-
-              </ul>
-
-            </nav>
-          </div>
-          <!-- /.card -->
-
       </section>
       <!-- /.content -->
     </div>
@@ -302,164 +260,71 @@
   </div>
   <!-- ./wrapper -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
   <script>
-    function populateTable(response, offset) {
-      console.log(response); // Check the response in the browser console
-      if (response && response.length > 0) { // Check if the response contains data
-        var container = $("#api-git-container");
-        container.empty(); // Clear the existing content
+    // var id = urlParams.get('id');
 
-        $.each(response, function (i, category) {
+    var id = new URLSearchParams(window.location.search).get("id");
 
-
-          var cardHtml = `
-              <tr>
-                        <td>
-                          ${category.id}
-                        </td>
-                        <td>
-                            <a> ${category.name}</a>
-                        </td>
-                        <td>
-                        ${category.user_id}
-                        </td>
-                         <td>
-                        ${category.point}
-                        </td>
-                         <td>
-                        ${category.promo_code}
-                        </td>
-                        <td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="point-update.html?id=${category.id}">
-                                <i class="fas fa-folder">
-                                </i>
-                                Edit
-                            </a>
-                      <a class="btn btn-danger btn-sm" onclick="confirmDelete(${category.id})">
-                      <i class="fas fa-trash"></i>
-                        Delete
-                      </a>
-
-                        </td>
-                    </tr>
-
-            `;
-
-
-          container.append(cardHtml); // Append the generated card to the container
-        });
-      }
-    }
-
-    function confirmDelete(categoryId) {
-      // Display a confirmation dialog to the user
-      const confirmDelete = confirm('Are you sure you want to delete this category?');
-
-      if (confirmDelete) {
-        // User confirmed the deletion, perform the actual deletion logic
-        deleteCategory(categoryId);
-      } else {
-        // User canceled the deletion, do nothing or handle the cancellation if needed
-        console.log('Deletion canceled by the user.');
-      }
-    }
-    function deleteCategory(categoryId) {
-
-      $.ajax({
-        url: `http://localhost:8080/api/admin/point/${categoryId}`,
-        method: 'DELETE',
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (response) {
-          // Handle the success response, such as updating the UI or reloading the category list.
-          console.log('Category deleted successfully.');
-          // Example: You can refresh the page after successful deletion.
-          window.location.reload();
-        },
-        error: function (error) {
-          // Handle the error response if the deletion fails.
-          console.error('Error deleting category:', error);
-        }
-      });
-    }
-  </script>
-
-  <script>
     $.ajax({
-      url: "http://localhost:8080/api/admin/point", // Set the default offset to 1
-      type: "GET",
-      dataType: "json",
-      success: function (response) {
-        populateTable(response, 1); // Pass the default offset value to the populateTable function
+      url: 'http://localhost:8080/api/user/point_request/'+id,
+      method: 'GET',
+      success: function (data) {
+        $('#name').val(data.name);
+        // $('#name_en').val(data.name_en);
       },
       error: function (xhr, status, error) {
-        console.log(error); // Log any errors in the browser console
+        console.error('Form submission error:', error,status);
+        // Handle error response
       }
     });
 
 
-    var currentPage = 1;
 
-    $("#prevButton").click(function () {
-      if (currentPage > 1) {
-        currentPage--;
+
+    $(document).ready(function () {
+      $('form').submit(function (event) {
+        event.preventDefault(); // prevent default form submission behavior
+        // name email status subscription_type logo category_id description terms_conditions
+
+        // Get values from the form
+        const name = $('#name').val();
+        // const name_en = $('#name_en').val();
+        const imageInput = $('#image')[0];
+        const imageFile = imageInput.files[0];
+        // Construct the form data
+        // const formData = new FormData();
+        // formData.append('name', name);
+        // formData.append('name_en', name_en);
+        // formData.append('image', imageFile);
+        const requestData = {
+          name: name,
+          // name_en: name_en,
+          // other properties of the Category object
+        };
+
+        // Submit the form data using AJAX
         $.ajax({
-          url: "http://localhost:8080/api/admin/point?offset=" + (currentPage - 1),
-          type: "GET",
-          dataType: "json",
-          success: function (response) {
-            populateTable(response, currentPage);
-            if (!response.empty) {
-              generatePagination();
-            }            // Pass the offset to the populateTable function
+          url: 'http://localhost:8080/api/user/point_request/' + id,
+          type: 'PUT',
+          data: JSON.stringify(requestData), // Send JSON data in the request body
+          contentType: 'application/json',
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+          },
+          success: function (data) {
+            console.log('Form submission success:', data);
+            // Clear the form
+            $('form').trigger('reset');
+            // Show a pop-up message
+            alert('Form submitted successfully!');
           },
           error: function (xhr, status, error) {
-            console.log(error); // Log any errors in the browser console
-          },
-        });
-
-      }
-    });
-
-    $("#nextButton").click(function () {
-      currentPage++;
-      $.ajax({
-        url: "http://localhost:8080/api/admin/point?offset=" + (currentPage - 1),
-        type: "GET",
-        dataType: "json",
-        success: function (response) {
-          populateTable(response, currentPage);
-          if (!response.empty) {
-            generatePagination();
+            console.error('Form submission error:', error);
+            // Handle error response
           }
-
-        },
-        error: function (xhr, status, error) {
-          console.log(error); // Log any errors in the browser console
-        },
+        });
       });
-
     });
-
-
-    function generatePagination() {
-      var paginationList = $(".pagination-list");
-      paginationList.empty(); // Clear existing page items
-
-      var pageItem = $("<li>").addClass("page-item").attr("id", "page_" + currentPage);
-      var pageLink = $("<a>").addClass("page-link").attr("href", "#").text(currentPage);
-      pageItem.append(pageLink);
-      paginationList.append(pageItem);
-    }
-
-    generatePagination(); // Generate initial pagination
-
-
-
-
-
   </script>
   <script>
     $(document).ready(function () {
