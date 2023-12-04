@@ -245,7 +245,7 @@
     };
     if (confirmTopRate) {
       $.ajax({
-        url: `http://localhost:8080/api/admin/business/top_rate/${Id}`,
+        url: `https://masl7tak-production.up.railway.app/api/admin/business/top_rate/${Id}`,
         method: 'PUT',
         data: JSON.stringify(requestData), // Send JSON data in the request body
         contentType: 'application/json',
@@ -274,7 +274,7 @@
   function Activate(serviceId) {
 
     $.ajax({
-      url: `http://localhost:8080/api/admin/business/active/${serviceId}`,
+      url: `https://masl7tak-production.up.railway.app/api/admin/business/active/${serviceId}`,
       method: 'PUT',
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -518,7 +518,7 @@
     function branches(id) {
       return new Promise(function (resolve, reject) {
         $.ajax({
-          url: "http://localhost:8080/api/public/branches?business_id=" + id,
+          url: "https://masl7tak-production.up.railway.app/api/public/branches?business_id=" + id,
           type: "GET",
           dataType: "json",
           success: function (response) {
@@ -535,7 +535,7 @@
 
   function downloadImage(keyName, callback) {
     $.ajax({
-      url: "http://localhost:8080/api/public/s3/download?keyName=" + keyName,
+      url: "https://masl7tak-production.up.railway.app/api/public/s3/download?keyName=" + keyName,
       type: "GET",
       xhrFields: {
         responseType: "blob",
@@ -557,7 +557,7 @@
 
     // Make an AJAX request to fetch the contact details based on the itemId
     $.ajax({
-      url: "http://localhost:8080/api/public/business?id=" + itemId, // Update the URL with your API endpoint
+      url: "https://masl7tak-production.up.railway.app/api/public/business?id=" + itemId, // Update the URL with your API endpoint
       type: "GET",
       dataType: "json",
       success: function (response) {

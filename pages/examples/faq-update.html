@@ -295,7 +295,7 @@
     var id = new URLSearchParams(window.location.search).get("id");
 
     $.ajax({
-      url: 'http://localhost:8080/api/public/faq/' + id,
+      url: 'https://masl7tak-production.up.railway.app/api/public/faq/' + id,
       method: 'GET',
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -345,7 +345,7 @@
 
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/user/faq/' + id,
+          url: 'https://masl7tak-production.up.railway.app/api/user/faq/' + id,
           type: 'PUT',
           contentType: 'application/json', // Set content type to JSON
           data: JSON.stringify(jsonObject),

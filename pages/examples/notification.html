@@ -370,7 +370,7 @@
 
 
     $.ajax({
-      url: 'http://localhost:8080/api/admin/user/all',
+      url: 'https://masl7tak-production.up.railway.app/api/admin/user/all',
       method: 'GET',
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -420,7 +420,7 @@
 
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/admin/notification/all',
+          url: 'https://masl7tak-production.up.railway.app/api/admin/notification/all',
           type: 'POST',
           data: JSON.stringify(requestData), // Send JSON data in the request body
           contentType: 'application/json',
@@ -467,7 +467,7 @@
 
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/admin/notification/all_business',
+          url: 'https://masl7tak-production.up.railway.app/api/admin/notification/all_business',
           type: 'POST',
           data: JSON.stringify(requestData), // Send JSON data in the request body
           contentType: 'application/json',
@@ -517,7 +517,7 @@
 
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/admin/notification',
+          url: 'https://masl7tak-production.up.railway.app/api/admin/notification',
           type: 'POST',
           data: JSON.stringify(requestData), // Send JSON data in the request body
           contentType: 'application/json',

@@ -290,7 +290,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
   $.ajax({
-    url: 'http://localhost:8080/api/admin/businesses',
+    url: 'https://masl7tak-production.up.railway.app/api/admin/businesses',
     method: 'GET',
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -315,7 +315,7 @@
     }
   });
   $.ajax({
-    url: 'http://localhost:8080/api/public/category',
+    url: 'https://masl7tak-production.up.railway.app/api/public/category',
     method: 'GET',
     success: function (data) {
       const $categorySelect = $('#category-select');
@@ -371,7 +371,7 @@
 
       // Submit the form data using AJAX
       $.ajax({
-        url: 'http://localhost:8080/api/business/service_event/save',
+        url: 'https://masl7tak-production.up.railway.app/api/business/service_event/save',
         type: 'POST',
         data: formData,
         processData: false,
@@ -404,7 +404,7 @@
       }
 
       $.ajax({
-        url: "http://localhost:8080/api/user/s3/upload",
+        url: "https://masl7tak-production.up.railway.app/api/user/s3/upload",
         type: "POST",
         data: formData,
         processData: false,

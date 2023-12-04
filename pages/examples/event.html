@@ -421,7 +421,7 @@
     function deleteCategory(serviceId) {
 
       $.ajax({
-        url: `http://localhost:8080/api/admin/event-offers/${serviceId}`,
+        url: `https://masl7tak-production.up.railway.app/api/admin/event-offers/${serviceId}`,
         method: 'DELETE',
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -444,7 +444,7 @@
 
   <script>
     $.ajax({
-      url: "http://localhost:8080/api/public/event-offers", // Set the default offset to 1
+      url: "https://masl7tak-production.up.railway.app/api/public/event-offers", // Set the default offset to 1
       type: "GET",
       dataType: "json",
       success: function (response) {
@@ -456,7 +456,7 @@
         console.log(error); // Log any errors in the browser console
       }
     });    $.ajax({
-      url: "http://localhost:8080/api/public/event-offers/business-events", // Set the default offset to 1
+      url: "https://masl7tak-production.up.railway.app/api/public/event-offers/business-events", // Set the default offset to 1
       type: "GET",
       dataType: "json",
       success: function (response) {
@@ -478,7 +478,7 @@
       if (currentPage > 1) {
         currentPage--;
         $.ajax({
-          url: "http://localhost:8080/api/public/event-offers?offset=" + (currentPage - 1),
+          url: "https://masl7tak-production.up.railway.app/api/public/event-offers?offset=" + (currentPage - 1),
           type: "GET",
           dataType: "json",
           success: function (response) {
@@ -500,7 +500,7 @@
     $("#nextButton").click(function () {
       currentPage++;
       $.ajax({
-        url: "http://localhost:8080/api/public/event-offers?offset=" + (currentPage - 1),
+        url: "https://masl7tak-production.up.railway.app/api/public/event-offers?offset=" + (currentPage - 1),
         type: "GET",
         dataType: "json",
         success: function (response) {

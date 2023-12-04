@@ -238,7 +238,7 @@
         function Activate(serviceId) {
 
           $.ajax({
-            url: `http://localhost:8080/api/admin/services/active/${serviceId}`,
+            url: `https://masl7tak-production.up.railway.app/api/admin/services/active/${serviceId}`,
             method: 'PUT',
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -445,7 +445,7 @@
     var imageArray = keyName.split(',');
 
     $.ajax({
-      url: "http://localhost:8080/api/public/s3/download?keyName=" + imageArray[0],
+      url: "https://masl7tak-production.up.railway.app/api/public/s3/download?keyName=" + imageArray[0],
       type: "GET",
       xhrFields: {
         responseType: "blob",
@@ -469,7 +469,7 @@
 
     // Make an AJAX request to fetch the contact details based on the itemId
     $.ajax({
-      url: "http://localhost:8080/api/public/services/" + itemId, // Update the URL with your API endpoint
+      url: "https://masl7tak-production.up.railway.app/api/public/services/" + itemId, // Update the URL with your API endpoint
       type: "GET",
       dataType: "json",
       success: function (response) {

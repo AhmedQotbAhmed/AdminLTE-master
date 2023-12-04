@@ -332,14 +332,14 @@
     var id = new URLSearchParams(window.location.search).get("id");
 
     $.ajax({
-      url: 'http://localhost:8080/api/public/insurance?id='+id,
+      url: 'https://masl7tak-production.up.railway.app/api/public/insurance?id='+id,
       method: 'GET',
       success: function (data) {
         $('#car_type').val(data.car_type==1?"New":"Old");
 
 
         $.ajax({
-          url: 'http://localhost:8080/api/public/car_brand/'+ data.car_brand_id,
+          url: 'https://masl7tak-production.up.railway.app/api/public/car_brand/'+ data.car_brand_id,
           method: 'GET',
           success: function (brand) {
             $('#car_brand').val(brand.name);
@@ -408,7 +408,7 @@
 
         // Submit the form data using AJAX
           $.ajax({
-            url: `http://localhost:8080/api/admin/insurance/accept_offer?${queryString}`,
+            url: `https://masl7tak-production.up.railway.app/api/admin/insurance/accept_offer?${queryString}`,
             type: 'PUT',
             contentType: 'application/json',
             headers: {
@@ -438,7 +438,7 @@
         }
 
         $.ajax({
-          url: "http://localhost:8080/api/user/s3/upload",
+          url: "https://masl7tak-production.up.railway.app/api/user/s3/upload",
           type: "POST",
           data: formData,
           processData: false,

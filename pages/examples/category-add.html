@@ -298,7 +298,7 @@
         };
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/admin/category',
+          url: 'https://masl7tak-production.up.railway.app/api/admin/category',
           type: 'POST',
           data: JSON.stringify(requestData), // Send JSON data in the request body
           contentType: 'application/json',
@@ -332,7 +332,7 @@
       }
 
       $.ajax({
-        url: "http://localhost:8080/api/user/s3/upload",
+        url: "https://masl7tak-production.up.railway.app/api/user/s3/upload",
         type: "POST",
         data: formData,
         processData: false,

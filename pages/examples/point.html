@@ -367,7 +367,7 @@
     function deleteCategory(categoryId) {
 
       $.ajax({
-        url: `http://localhost:8080/api/admin/point/${categoryId}`,
+        url: `https://masl7tak-production.up.railway.app/api/admin/point/${categoryId}`,
         method: 'DELETE',
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -390,7 +390,7 @@
 
   <script>
     $.ajax({
-      url: "http://localhost:8080/api/admin/point", // Set the default offset to 1
+      url: "https://masl7tak-production.up.railway.app/api/admin/point", // Set the default offset to 1
       type: "GET",
       dataType: "json",
       success: function (response) {
@@ -408,7 +408,7 @@
       if (currentPage > 1) {
         currentPage--;
         $.ajax({
-          url: "http://localhost:8080/api/admin/point?offset=" + (currentPage - 1),
+          url: "https://masl7tak-production.up.railway.app/api/admin/point?offset=" + (currentPage - 1),
           type: "GET",
           dataType: "json",
           success: function (response) {
@@ -428,7 +428,7 @@
     $("#nextButton").click(function () {
       currentPage++;
       $.ajax({
-        url: "http://localhost:8080/api/admin/point?offset=" + (currentPage - 1),
+        url: "https://masl7tak-production.up.railway.app/api/admin/point?offset=" + (currentPage - 1),
         type: "GET",
         dataType: "json",
         success: function (response) {

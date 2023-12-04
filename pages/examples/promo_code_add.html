@@ -286,7 +286,7 @@
   <script>
     // var id = urlParams.get('id');
     $.ajax({
-      url: 'http://localhost:8080/api/admin/businesses',
+      url: 'https://masl7tak-production.up.railway.app/api/admin/businesses',
       method: 'GET',
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -340,7 +340,7 @@
 
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/admin/promo_code',
+          url: 'https://masl7tak-production.up.railway.app/api/admin/promo_code',
           type: 'POST',
           data: JSON.stringify(requestData), // Send JSON data in the request body
           contentType: 'application/json',

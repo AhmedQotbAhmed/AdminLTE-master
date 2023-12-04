@@ -296,7 +296,7 @@
 
 
     $.ajax({
-      url: 'http://localhost:8080/api/public/replacement/1',
+      url: 'https://masl7tak-production.up.railway.app/api/public/replacement/1',
       method: 'GET',
       success: function (data) {
         $('#insurance_val').val(data.insurance_val);
@@ -342,7 +342,7 @@
 
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/admin/replacement/' + 1,
+          url: 'https://masl7tak-production.up.railway.app/api/admin/replacement/' + 1,
           type: 'PUT',
           contentType: 'application/json', // Set content type to JSON
           data: JSON.stringify(requestData), // Convert object to JSON

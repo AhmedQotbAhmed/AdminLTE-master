@@ -262,7 +262,7 @@
   <script>
 
     $.ajax({
-      url: 'http://localhost:8080/api/public/category',
+      url: 'https://masl7tak-production.up.railway.app/api/public/category',
       method: 'GET',
       success: function (data) {
         const $categorySelect = $('#category-select');
@@ -306,7 +306,7 @@
 
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/user/businesses',
+          url: 'https://masl7tak-production.up.railway.app/api/user/businesses',
           type: 'POST',
           data: formData,
           processData: false,

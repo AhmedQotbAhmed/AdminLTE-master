@@ -356,7 +356,7 @@
     function deleteCategory(serviceId) {
 
       $.ajax({
-        url: `http://localhost:8080/api/admin/faq/${serviceId}`,
+        url: `https://masl7tak-production.up.railway.app/api/admin/faq/${serviceId}`,
         method: 'DELETE',
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -377,7 +377,7 @@
     }
     $(document).ready(function () {
       $.ajax({
-        url: "http://localhost:8080/api/public/faq", // Set the default offset to 1
+        url: "https://masl7tak-production.up.railway.app/api/public/faq", // Set the default offset to 1
         type: "GET",
         dataType: "json",
         success: function (response) {
@@ -390,7 +390,7 @@
         }
       });
       $.ajax({
-        url: "http://localhost:8080/api/public/faq/support", // Set the default offset to 1
+        url: "https://masl7tak-production.up.railway.app/api/public/faq/support", // Set the default offset to 1
         type: "GET",
         dataType: "json",
         success: function (response) {
@@ -407,7 +407,7 @@
       pageItems.click(function () {
         var offset = $(this).text(); // Get the page-item number as the offset
         $.ajax({
-          url: "http://localhost:8080/api/public/faq?offset=" + (offset - 1),
+          url: "https://masl7tak-production.up.railway.app/api/public/faq?offset=" + (offset - 1),
           type: "GET",
           dataType: "json",
           success: function (response) {
@@ -432,7 +432,7 @@
       if (currentPage > 1) {
         currentPage--;
         $.ajax({
-          url: "http://localhost:8080/api/public/faq?offset=" + (currentPage - 1),
+          url: "https://masl7tak-production.up.railway.app/api/public/faq?offset=" + (currentPage - 1),
           type: "GET",
           dataType: "json",
           success: function (response) {
@@ -454,7 +454,7 @@
     $("#nextButton").click(function () {
       currentPage++;
       $.ajax({
-        url: "http://localhost:8080/api/public/faq?offset=" + (currentPage - 1),
+        url: "https://masl7tak-production.up.railway.app/api/public/faq?offset=" + (currentPage - 1),
         type: "GET",
         dataType: "json",
         success: function (response) {

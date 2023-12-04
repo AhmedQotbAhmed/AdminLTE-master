@@ -377,7 +377,7 @@
     function deleteCategory(serviceId) {
 
       $.ajax({
-        url: `http://localhost:8080/api/business/branches/${serviceId}`,
+        url: `https://masl7tak-production.up.railway.app/api/business/branches/${serviceId}`,
         method: 'DELETE',
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -400,7 +400,7 @@
 
   <script>
     $.ajax({
-      url: "http://localhost:8080/api/public/branches", // Set the default offset to 1
+      url: "https://masl7tak-production.up.railway.app/api/public/branches", // Set the default offset to 1
       type: "GET",
       dataType: "json",
       success: function (response) {
@@ -419,7 +419,7 @@
     pageItems.click(function () {
       var offset = $(this).text(); // Get the page-item number as the offset
       $.ajax({
-        url: "http://localhost:8080/api/public/branches?offset=" + (offset - 1),
+        url: "https://masl7tak-production.up.railway.app/api/public/branches?offset=" + (offset - 1),
         type: "GET",
         dataType: "json",
         success: function (response) {
@@ -440,7 +440,7 @@
       if (currentPage > 1) {
         currentPage--;
         $.ajax({
-          url: "http://localhost:8080/api/public/car_brand?offset=" + (currentPage - 1),
+          url: "https://masl7tak-production.up.railway.app/api/public/car_brand?offset=" + (currentPage - 1),
           type: "GET",
           dataType: "json",
           success: function (response) {
@@ -460,7 +460,7 @@
     $("#nextButton").click(function () {
       currentPage++;
       $.ajax({
-        url: "http://localhost:8080/api/public/car_brand?offset=" + (currentPage - 1),
+        url: "https://masl7tak-production.up.railway.app/api/public/car_brand?offset=" + (currentPage - 1),
         type: "GET",
         dataType: "json",
         success: function (response) {

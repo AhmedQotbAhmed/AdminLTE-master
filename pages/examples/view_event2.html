@@ -324,7 +324,7 @@
 
 
       $.ajax({
-        url: "http://localhost:8080/api/public/s3/download?keyName=" + keyName,
+        url: "https://masl7tak-production.up.railway.app/api/public/s3/download?keyName=" + keyName,
         type: "GET",
         xhrFields: {
           responseType: "blob",
@@ -351,7 +351,7 @@
 
       // Make an AJAX request to fetch the contact details based on the itemId
       $.ajax({
-        url: "http://localhost:8080/api/public/event-offers/" + itemId, // Update the URL with your API endpoint
+        url: "https://masl7tak-production.up.railway.app/api/public/event-offers/" + itemId, // Update the URL with your API endpoint
         type: "GET",
         dataType: "json",
         success: function (response) {

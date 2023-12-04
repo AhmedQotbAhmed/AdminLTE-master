@@ -294,7 +294,7 @@
     function populateCities(regionId) {
       $city.empty();
       $.ajax({
-        url: 'http://localhost:8080/api/public/region/' + regionId,
+        url: 'https://masl7tak-production.up.railway.app/api/public/region/' + regionId,
         method: 'GET',
         success: function (data) {
           $.each(data.city, function (index, city) {
@@ -318,7 +318,7 @@
     // Add event listener to the region select element
 
     $.ajax({
-      url: 'http://localhost:8080/api/public/region',
+      url: 'https://masl7tak-production.up.railway.app/api/public/region',
       method: 'GET',
       success: function (data) {
         $.each(data, function (index, region) {
@@ -380,7 +380,7 @@
 
         // Submit the form data using AJAX
         $.ajax({
-          url: 'http://localhost:8080/api/business/branches',
+          url: 'https://masl7tak-production.up.railway.app/api/business/branches',
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(formData),

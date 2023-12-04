@@ -278,7 +278,7 @@
   var id = new URLSearchParams(window.location.search).get("id");
 
   $.ajax({
-    url: 'http://localhost:8080/api/user/point_request/' + id,
+    url: 'https://masl7tak-production.up.railway.app/api/user/point_request/' + id,
     method: 'GET',
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -320,7 +320,7 @@
 
       // Submit the form data using AJAX
       $.ajax({
-        url: 'http://localhost:8080/api/admin/point/' + id,
+        url: 'https://masl7tak-production.up.railway.app/api/admin/point/' + id,
         type: 'PUT',
         data: JSON.stringify(requestData), // Send JSON data in the request body
         contentType: 'application/json',
