@@ -305,6 +305,8 @@
           });
         },
         error: function () {
+          alert('Form submission error!');
+
           // Handle errors if necessary
         }
       });
@@ -329,6 +331,8 @@
         // Trigger the change event to populate the initial list of cities based on the default selected region
       },
       error: function () {
+        alert('Form submission error!');
+
         // Handle errors if necessary
       }
     });
@@ -392,6 +396,8 @@
             alert('Form submitted successfully!');
           },
           error: function (xhr, status, error) {
+            alert('Form submission error!');
+
             console.error('Form submission error:', error);
             // Handle error response
           }

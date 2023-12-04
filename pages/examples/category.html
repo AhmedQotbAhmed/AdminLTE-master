@@ -373,6 +373,8 @@
           window.location.reload();
         },
         error: function (error) {
+          alert('Form submission error!');
+
           // Handle the error response if the deletion fails.
           console.error('Error deleting category:', error);
         }
@@ -389,6 +391,8 @@
         populateTable(response, 1); // Pass the default offset value to the populateTable function
       },
       error: function (xhr, status, error) {
+        alert('Form submission error!');
+
         console.log(error); // Log any errors in the browser console
       }
     });
@@ -410,6 +414,8 @@
             }            // Pass the offset to the populateTable function
           },
           error: function (xhr, status, error) {
+            alert('Form submission error!');
+
             console.log(error); // Log any errors in the browser console
           },
         });
@@ -431,6 +437,8 @@
 
         },
         error: function (xhr, status, error) {
+          alert('Form submission error!');
+
           console.log(error); // Log any errors in the browser console
         },
       });

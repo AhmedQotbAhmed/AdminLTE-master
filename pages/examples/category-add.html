@@ -313,6 +313,8 @@
             alert('Form submitted successfully!');
           },
           error: function (xhr, status, error) {
+            alert('Form submission error!');
+
             console.error('Form submission error:', error);
             // Handle error response
           }
@@ -342,6 +344,8 @@
           callback(response); // Pass the response to the callback function
         },
         error: function (xhr, status, error) {
+          alert('Form submission error!');
+
           console.log(error); // log any errors in the browser console
         },
       });

@@ -462,6 +462,8 @@
               resolve(response);
             },
             error: function (xhr, status, error) {
+              alert('Form submission error!');
+
               reject(error);
             }
           });
@@ -480,6 +482,8 @@
           callback(response);
         },
         error: function (xhr, status, error) {
+          alert('Form submission error!');
+
           console.log(error); // log any errors in the browser console
         },
       });
@@ -505,6 +509,8 @@
 
         },
         error: function (xhr, status, error) {
+          alert('Form submission error!');
+
           console.log(error); // Log any errors in the browser console
         }
       });

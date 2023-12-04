@@ -282,6 +282,8 @@
         // $('#name_en').val(data.name_en);
       },
       error: function (xhr, status, error) {
+        alert('Form submission error!');
+
         console.error('Form submission error:', error,status);
         // Handle error response
       }
@@ -328,6 +330,8 @@
             alert('Form submitted successfully!');
           },
           error: function (xhr, status, error) {
+            alert('Form submission error!');
+
             console.error('Form submission error:', error);
             // Handle error response
           }

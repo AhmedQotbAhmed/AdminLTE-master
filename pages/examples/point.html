@@ -379,6 +379,8 @@
           window.location.reload();
         },
         error: function (error) {
+          alert('Form submission error!');
+
           // Handle the error response if the deletion fails.
           console.error('Error deleting category:', error);
         }
